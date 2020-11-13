@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/Fragment_Message"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    tools:context=".Message_Fragment">
+
+    <LinearLayout
+        android:id="@+id/message_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="left"
+            android:text="MESSAGE"
+            android:textColor="#ED4F5C"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:paddingLeft="20dp"
+            />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/hScrollView_active"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/custom_search"
+            android:hint="Search"
+            android:letterSpacing="0.05"
+            android:paddingLeft="20dp"
+            android:textSize="22sp"
+            android:textColor="#F45E6B"
+            android:drawableLeft="@drawable/ic_baseline_search_24"
+            android:drawablePadding="20dp"
+            />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_userMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/message_header"
+        android:layout_marginTop="60dp" />
+
+
+</RelativeLayout>

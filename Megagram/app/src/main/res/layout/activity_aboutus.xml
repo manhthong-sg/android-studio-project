@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".aboutus">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/btnBack"
+            style="?android:buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#161517"
+            android:text="About us"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="45dp"/>
+    </LinearLayout>
+
+
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rolled out in 2020, Megagram is the most popular mobile messaging app in Vietnam, thanks to its striking speed and stability commensurate with the local internet infrastructure.
+
+With 52 million monthly active users, the app records over 1 billion messages, 50 million calling minutes, and 45 million pictures per day.
+
+Besides its messaging function, Megagram has also boasted many other features, catering to different users' needs.
+"
+
+        android:textColor="#161517"
+        android:paddingLeft="30dp"
+        android:textSize="20sp"
+        android:layout_marginTop="20sp"
+            />
+
+    </LinearLayout>

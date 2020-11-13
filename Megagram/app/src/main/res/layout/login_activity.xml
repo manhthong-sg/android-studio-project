@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:background="@drawable/loginbackground">
+
+
+    <LinearLayout
+        android:id="@+id/group_login"
+        android:layout_width="289dp"
+        android:layout_height="492dp"
+        android:layout_margin="60dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivLogo"
+        app:layout_constraintVertical_bias="0.393">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="#FFFFFF"
+            android:hint="Username"
+            android:paddingBottom="20dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#FFFFFF" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#FFFFFF"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingBottom="20dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:background="@drawable/custom_button_simple"
+            android:text="Sign in"
+            android:textColor="#565656"
+            app:backgroundTint="#FFFFFF" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Sign in with"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/group_icon_login"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <ImageView
+                android:layout_width="190dp"
+                android:layout_height="39dp"
+                android:layout_marginLeft="80dp"
+                android:layout_weight="1"
+                android:src="@drawable/icon_facebook" />
+
+            <ImageView
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="80dp"
+                android:layout_weight="1"
+                android:src="@drawable/icon_google" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/group_signUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="60dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Have no account?"
+            android:textColor="#D54060"
+            android:textSize="17sp"
+            android:textStyle="italic"
+            />
+
+        <TextView
+            android:id="@+id/tvSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:gravity="center_horizontal"
+            android:text="Sign up"
+            android:textColor="#D54060"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.065"
+        android:layout_marginBottom="60dp"
+        android:src="@drawable/megagram_logo"
+        />
+    <ImageView
+        android:id="@+id/ivApp"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginTop="70dp"
+        android:paddingTop="15dp"
+        android:paddingLeft="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.065"
+        android:src="@drawable/megagram_logo_below"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
