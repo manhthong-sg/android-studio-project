@@ -1,4 +1,4 @@
-package com.manhthong.chatsocketio;
+package com.manhthong.chatsocketio.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;

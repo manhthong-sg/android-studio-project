@@ -1,4 +1,4 @@
-package com.manhthong.chatsocketio;
+package com.manhthong.chatsocketio.Fragment;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,6 +17,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.manhthong.chatsocketio.Adapter.ImagesAdapter;
+import com.manhthong.chatsocketio.Adapter.UserMessageAdapter;
+import com.manhthong.chatsocketio.Image_Message;
+import com.manhthong.chatsocketio.Message_Activity;
+import com.manhthong.chatsocketio.R;
+import com.manhthong.chatsocketio.User_Message;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -52,11 +59,9 @@ public class Message_Fragment extends Fragment  {
 
 //        //them du lieu nao recyclerview nguoi online
 //        lst_images.add(new Image_Message(R.drawable.avatar_hanh_le));
-//        lst_images.add(new Image_Message(R.drawable.avatar_hanh_le));
-//        lst_images.add(new Image_Message(R.drawable.avatar_hanh_le));
-//        lst_images.add(new Image_Message(R.drawable.avatar_hanh_le));
-//        lst_images.add(new Image_Message(R.drawable.avatar_hanh_le));
-//        lst_images.add(new Image_Message(R.drawable.avatar_hanh_le));
+//        lst_images.add(new Image_Message(R.drawable.avatar_nhat_vy));
+//        lst_images.add(new Image_Message(R.drawable.avatar_nhu_y));
+//        lst_images.add(new Image_Message(R.drawable.avatar_minh_hanh));
 //        LinearLayoutManager horizontalLayoutManagaer = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
 //        recyclerView.setLayoutManager(horizontalLayoutManagaer);
 //

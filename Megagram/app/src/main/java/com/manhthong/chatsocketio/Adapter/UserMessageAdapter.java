@@ -1,4 +1,5 @@
-package com.manhthong.chatsocketio;
+package com.manhthong.chatsocketio.Adapter;
+
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,23 +9,26 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.manhthong.chatsocketio.R;
+import com.manhthong.chatsocketio.User_Message;
+
 import java.util.List;
 
-public class OnlineUserAdapter extends BaseAdapter {
+public class UserMessageAdapter extends BaseAdapter {
 
     private Context context;
     private int layout;
-    private List<Online_User> lst__online_user;
+    private List<User_Message> lst__user_message;
 
-    public OnlineUserAdapter(Context context, int layout, List<Online_User> lst_online_user) {
+    public UserMessageAdapter(Context context, int layout, List<User_Message> lst__user_message) {
         this.context = context;
         this.layout = layout;
-        this.lst__online_user = lst_online_user;
+        this.lst__user_message = lst__user_message;
     }
 
     @Override
     public int getCount() {
-        return lst__online_user.size();
+        return lst__user_message.size();
     }
 
     @Override
@@ -43,11 +47,15 @@ public class OnlineUserAdapter extends BaseAdapter {
         convertView=layoutInflater.inflate(layout, null);
         //Map field
         TextView tv_userName=convertView.findViewById(R.id.tv_userName);
+        TextView tv_messDesc= convertView.findViewById(R.id.tv_messageDesc);
+        TextView tv_messTime=convertView.findViewById(R.id.tv_messageTime);
         ImageView imgUser=convertView.findViewById(R.id.imgUser);
         //Gan gia tri
-        Online_User online_user= lst__online_user.get(position);
-        tv_userName.setText(online_user.getUserName());
-        imgUser.setImageResource(online_user.getImgUser());
+        User_Message user_message= lst__user_message.get(position);
+        tv_userName.setText(user_message.getUserName());
+        tv_messDesc.setText(user_message.getMessage_desc());
+        tv_messTime.setText(user_message.getMessage_time());
+        imgUser.setImageResource(user_message.getImgUser());
         return convertView;
     }
 }

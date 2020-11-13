@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.manhthong.chatsocketio.Fragment.Active_Status_Fragment;
+import com.manhthong.chatsocketio.Fragment.Message_Fragment;
+import com.manhthong.chatsocketio.Fragment.Setting_Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
