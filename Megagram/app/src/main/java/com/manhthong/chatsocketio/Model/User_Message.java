@@ -1,4 +1,5 @@
-package com.manhthong.chatsocketio;
+package com.manhthong.chatsocketio.Model;
+
 
 public class User_Message {
     String UserName;

@@ -8,7 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.manhthong.chatsocketio.Online_User;
+import com.manhthong.chatsocketio.Model.Online_User;
+import com.manhthong.chatsocketio.Model.Online_User;
 import com.manhthong.chatsocketio.R;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class OnlineUserAdapter extends BaseAdapter {
     private int layout;
     private List<Online_User> lst__online_user;
 
-    public OnlineUserAdapter(Context context, int layout, List<com.manhthong.chatsocketio.Online_User> lst_online_user) {
+    public OnlineUserAdapter(Context context, int layout, List<Online_User> lst_online_user) {
         this.context = context;
         this.layout = layout;
         this.lst__online_user = lst_online_user;
@@ -48,7 +49,7 @@ public class OnlineUserAdapter extends BaseAdapter {
         TextView tv_userName=convertView.findViewById(R.id.tv_userName);
         ImageView imgUser=convertView.findViewById(R.id.imgUser);
         //Gan gia tri
-        com.manhthong.chatsocketio.Online_User online_user= lst__online_user.get(position);
+        Online_User online_user= lst__online_user.get(position);
         tv_userName.setText(online_user.getUserName());
         imgUser.setImageResource(online_user.getImgUser());
         return convertView;

@@ -1,31 +1,28 @@
 package com.manhthong.chatsocketio.Fragment;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.manhthong.chatsocketio.Adapter.ImagesAdapter;
+import com.manhthong.chatsocketio.Adapter.RecyclerViewAdapter;
 import com.manhthong.chatsocketio.Adapter.UserMessageAdapter;
-import com.manhthong.chatsocketio.Image_Message;
 import com.manhthong.chatsocketio.Message_Activity;
+import com.manhthong.chatsocketio.Model.Image_Message;
 import com.manhthong.chatsocketio.R;
-import com.manhthong.chatsocketio.User_Message;
+import com.manhthong.chatsocketio.Model.User_Message;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,10 +31,12 @@ public class Message_Fragment extends Fragment  {
     ListView lv_user_massage;
     List<User_Message> lst_user_massage;
     UserMessageAdapter adapter;
-    //khai bao thanh online
-    private ImagesAdapter mAdapter;
-    RecyclerView recyclerView;
-    ArrayList<Image_Message> lst_images;
+    //test recyclerview
+    private static final String TAG = "Message_Fragment";
+
+    //vars
+
+    private ArrayList<Image_Message> mImageUrls = new ArrayList<>();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -45,7 +44,7 @@ public class Message_Fragment extends Fragment  {
 
         //anh xa
         lv_user_massage=view.findViewById(R.id.lv_userMessage);
-        recyclerView=view.findViewById(R.id.recyclerView);
+
         //them du lieu vao list nguoi nhan tin
         lst_user_massage= new ArrayList<>();
         lst_user_massage.add(new User_Message("Minh Hạnh", "nhớ a quá à >< . .", "16:04", R.drawable.avatar_minh_hanh));
@@ -58,16 +57,24 @@ public class Message_Fragment extends Fragment  {
         lst_user_massage.add(new User_Message("Mạnh Thông", "ccc . .", "12:35", R.drawable.avatar_thong));
 
 //        //them du lieu nao recyclerview nguoi online
-//        lst_images.add(new Image_Message(R.drawable.avatar_hanh_le));
-//        lst_images.add(new Image_Message(R.drawable.avatar_nhat_vy));
-//        lst_images.add(new Image_Message(R.drawable.avatar_nhu_y));
-//        lst_images.add(new Image_Message(R.drawable.avatar_minh_hanh));
-//        LinearLayoutManager horizontalLayoutManagaer = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-//        recyclerView.setLayoutManager(horizontalLayoutManagaer);
-//
-//        mAdapter = new ImagesAdapter(getActivity(), lst_images);
-//        recyclerView.setAdapter(mAdapter);
-//
+        mImageUrls.add(new Image_Message( R.drawable.avatar_huuloc, "Hữu Lộc"));
+        mImageUrls.add(new Image_Message(R.drawable.avatar_hanh_le, "Hạnh Lê"));
+        mImageUrls.add(new Image_Message(R.drawable.avatar_thanhtruong, "Thanh Trường"));
+        mImageUrls.add(new Image_Message(R.drawable.avatar_minh_hanh, "Minh Hạnh"));
+        mImageUrls.add(new Image_Message(R.drawable.avatar_thong, "Mạnh Thông"));
+        mImageUrls.add(new Image_Message( R.drawable.avatar_huuloc, "Hữu Lộc"));
+        mImageUrls.add(new Image_Message(R.drawable.avatar_uyen, "Tuyết Uyển"));
+        mImageUrls.add(new Image_Message(R.drawable.avatar_hanh_le, "Hạnh Lê"));
+        mImageUrls.add(new Image_Message(R.drawable.avatar_nhu_y, "Như Ý"));
+        mImageUrls.add(new Image_Message(R.drawable.avatar_minh_hanh, "Minh Hạnh"));
+        mImageUrls.add(new Image_Message(R.drawable.avatar_thong, "Mạnh Thông"));
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        RecyclerViewAdapter recyclerViewAdapteradapter = new RecyclerViewAdapter(getActivity(), mImageUrls);
+        recyclerView.setAdapter(recyclerViewAdapteradapter);
 
         //do du lieu vao listview
         adapter= new UserMessageAdapter(getActivity(), R.layout.list_message_user, lst_user_massage);
@@ -82,18 +89,9 @@ public class Message_Fragment extends Fragment  {
         });
 
 
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-//        recyclerView.setHasFixedSize(true);
-//
-//        // use a linear layout manager
-//        layoutManager = new LinearLayoutManager(getActivity());
-//        recyclerView.setLayoutManager(layoutManager);
-//
-//        // specify an adapter (see also next example)
-//        mAdapter = new MyAdapter(lst_images);
-//        recyclerView.setAdapter(mAdapter);
+
         return view;
 
     }
+
 }

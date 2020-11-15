@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.manhthong.chatsocketio.R;
-import com.manhthong.chatsocketio.User_Message;
+import com.manhthong.chatsocketio.Model.User_Message;
 
 import java.util.List;
 

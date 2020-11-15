@@ -1,10 +1,11 @@
-package com.manhthong.chatsocketio;
+package com.manhthong.chatsocketio.Model;
 
 public class Image_Message {
     int imgUser;
-
-    public Image_Message(int imgUser) {
+    String userName;
+    public Image_Message(int imgUser, String userName) {
         this.imgUser = imgUser;
+        this.userName=userName;
     }
 
     public int getImgUser() {
@@ -15,4 +16,11 @@ public class Image_Message {
         this.imgUser = imgUser;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 }

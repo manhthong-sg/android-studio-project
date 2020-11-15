@@ -5,10 +5,11 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/megagram_logo"
+
         android:label="Megagram"
         android:roundIcon="@null"
         android:supportsRtl="true"
+        android:icon="@mipmap/megagram_logo"
         android:theme="@style/Theme.ChatSocketIO">
         <activity android:name=".Message_Activity">
 

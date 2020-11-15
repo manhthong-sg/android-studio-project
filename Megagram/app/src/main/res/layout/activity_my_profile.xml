@@ -235,13 +235,14 @@
 <!--                />-->
             <ImageButton
                 android:id="@+id/btnEditProfile"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:background="@drawable/custom_button_simple1"
                 android:src="@drawable/ic_edit_profile_24"
-                android:layout_marginLeft="350dp"
+                android:layout_marginLeft="320dp"
+                android:layout_marginTop="40dp"
                 />
         </LinearLayout>
 

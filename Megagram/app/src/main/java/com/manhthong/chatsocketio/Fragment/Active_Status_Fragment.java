@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.manhthong.chatsocketio.Message_Activity;
 import com.manhthong.chatsocketio.Adapter.OnlineUserAdapter;
-import com.manhthong.chatsocketio.Online_User;
+import com.manhthong.chatsocketio.Model.Online_User;
 import com.manhthong.chatsocketio.R;
 
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ public class Active_Status_Fragment extends Fragment {
         lst_online_user.add(new Online_User("Vợ yêu 002", R.drawable.avatar_hanh_le));
 
         //do data vao listview
-        onlineUserAdapter= new com.manhthong.chatsocketio.Adapter.OnlineUserAdapter(getActivity(), R.layout.list_active_user, lst_online_user);
+        onlineUserAdapter= new OnlineUserAdapter(getActivity(), R.layout.list_active_user, lst_online_user);
         lv_online_user.setAdapter(onlineUserAdapter);
 
         //set su kien onClick cho tung item online user
