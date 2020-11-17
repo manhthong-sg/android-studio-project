@@ -42,7 +42,10 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
-    //recyclerview
+    //socketIO
+    implementation 'com.github.nkzawa:socket.io-client:0.6.0'
+    compile 'com.github.nkzawa:socket.io-client:0.6.0'
+//recyclerview
     implementation "com.android.support:recyclerview-v7:27.0.2"
     implementation 'androidx.cardview:cardview:1.0.0'
     testImplementation 'junit:junit:4.+'

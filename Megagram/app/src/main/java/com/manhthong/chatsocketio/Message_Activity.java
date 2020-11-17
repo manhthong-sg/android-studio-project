@@ -9,6 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 
 import com.manhthong.chatsocketio.Adapter.MessageAdapter;
 import com.manhthong.chatsocketio.Model.MessageFormat;
@@ -39,6 +45,7 @@ public class Message_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
+
         //tham chieu
         btnBack=findViewById(R.id.btnBack);
         btnInfo=findViewById(R.id.btnInfo);
@@ -74,5 +81,15 @@ public class Message_Activity extends AppCompatActivity {
         messageFormatList.add(new MessageFormat("00002", "Thông", "Cậu vui tánh quá :))"));
         messageAdapter = new MessageAdapter(this, R.layout.item_message, messageFormatList);
         messageListView.setAdapter(messageAdapter);
+        //set su kien onClick cho btnSend
+        btn_send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                messageFormatList.add(new MessageFormat("00002","Thông", edt_send.getText().toString()));
+                messageAdapter.notifyDataSetChanged();
+                edt_send.setText("");
+
+            }
+        });
     }
 }

@@ -9,12 +9,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
+
+import java.net.URISyntaxException;
+
 public class LoginActivity extends AppCompatActivity {
     TextView tvSignUp;
     Button btnSignIn;
+    private Socket mSocket;
+    {
+        try {
+            mSocket = IO.socket("http://172.16.96.144:3000");
+        } catch (URISyntaxException e) {}
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.login_activity);
         tvSignUp=findViewById(R.id.tvSignUp);
         btnSignIn=findViewById(R.id.btnSignIn);
@@ -34,5 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intentSignUp);
             }
         });
+
+        mSocket.connect();
     }
 }
