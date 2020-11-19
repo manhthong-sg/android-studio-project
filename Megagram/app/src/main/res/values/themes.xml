@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ChatSocketIO" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.ChatSocketIO" parent="Theme.AppCompat.Light.NoActionBar">
 <!--         Primary brand color.-->
         <item name="colorPrimary">#FF6E7D</item>
         <item name="colorPrimaryVariant">@color/orange</item>

@@ -20,13 +20,13 @@ public class LoginActivity extends AppCompatActivity {
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket("http://172.16.96.144:3000");
+            mSocket = IO.socket("http://192.168.145.2:3000");
         } catch (URISyntaxException e) {}
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        mSocket.connect();
         setContentView(R.layout.login_activity);
         tvSignUp=findViewById(R.id.tvSignUp);
         btnSignIn=findViewById(R.id.btnSignIn);
@@ -47,6 +47,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        mSocket.connect();
+
+    }
+    public Socket  get_mSocket(){
+        return mSocket;
     }
 }
