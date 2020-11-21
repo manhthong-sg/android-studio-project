@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,13 +21,17 @@ public class LoginActivity extends AppCompatActivity {
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket("http://192.168.145.2:3000");
-        } catch (URISyntaxException e) {}
+            mSocket = IO.socket("http://192.168.13.112:3000");
+        } catch (URISyntaxException e) {
+            Log.d("SocketIO", "connection error");
+        }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("SocketIO", "connecting...");
         mSocket.connect();
+        Log.d("SocketIO", "connection successfull");
         setContentView(R.layout.login_activity);
         tvSignUp=findViewById(R.id.tvSignUp);
         btnSignIn=findViewById(R.id.btnSignIn);

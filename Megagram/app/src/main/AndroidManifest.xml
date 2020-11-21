@@ -8,13 +8,12 @@
     <application
         android:allowBackup="true"
         android:usesCleartextTraffic="true"
-
         android:label="Megagram"
         android:roundIcon="@null"
         android:supportsRtl="true"
         android:icon="@mipmap/megagram_logo"
         android:theme="@style/Theme.ChatSocketIO"
-        tools:targetApi="l">
+        tools:targetApi="m">
         <activity android:name=".Message_Activity">
 
         </activity>
