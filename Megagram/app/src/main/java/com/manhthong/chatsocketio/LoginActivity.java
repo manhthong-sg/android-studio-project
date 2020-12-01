@@ -21,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket("http://192.168.13.112:3000");
+            mSocket = IO.socket("http://172.19.201.7:3000");
         } catch (URISyntaxException e) {
             Log.d("SocketIO", "connection error");
         }
@@ -29,10 +29,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("SocketIO", "connecting...");
-        mSocket.connect();
-        Log.d("SocketIO", "connection successfull");
         setContentView(R.layout.login_activity);
+        mSocket.connect();
         tvSignUp=findViewById(R.id.tvSignUp);
         btnSignIn=findViewById(R.id.btnSignIn);
         tvSignUp.setOnClickListener(new View.OnClickListener() {
