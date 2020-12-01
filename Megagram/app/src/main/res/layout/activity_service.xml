@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".service">
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/btnBack"
+                style="?android:buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_back_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#161517"
+                android:text="Term of Service"
+                android:textStyle="bold"
+                android:textSize="32sp"
+                android:paddingLeft="10dp"
+                />
+        </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Introduction:"
+        android:textStyle="bold"
+        android:textColor="#161517"
+        android:paddingLeft="30dp"
+        android:textSize="25sp"
+        android:layout_marginTop="20sp"
+
+        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="This website provides new versions of free chat application Megagram for mobile phones. - Supported models: JAVA, ANDROID, IPHONE, Windows Phone"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Terms and Conditions:"
+            android:textStyle="bold"
+            android:textColor="#161517"
+            android:paddingLeft="30dp"
+            android:textSize="25sp"
+            android:layout_marginTop="20sp"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text=" When you click to download the application, you agree to our terms and conditions. - Versions of Zalo for iPhone, WindowPhone you can download for free and use for free. - For Zalo application versions for Java and Android phones, downloading the application to your device is free, but to use the application you have to pay fees from 5,000 VND to 30 000 VND depending on the receiver. fee, this will be done only once when you activate to be able to download the application installation file. - The collection of fees aims to get funding to maintain the Server for you to download the fastest and most stable, the cost for the promotion of the website. - The rates are calculated as below, so all price disputes are not accepted by us and we do not assume any liability. Premium toll: 8469 - 4000 VND, 7569 - 5000 VND, 7669 - 10 000 VND, 7769 - 15 000 VND.Whether to pay or not is entirely up to the user. When using the application, if you do not agree to pay the fee please do not click download the application or remove the application from the phone if it is already installed on the device.
+
+* We are committed to not deducting money without your consent."
+            android:textSize="20sp"/>
+
+
+
+
+
+
+    </LinearLayout>
+   </ScrollView>
+</RelativeLayout>
+

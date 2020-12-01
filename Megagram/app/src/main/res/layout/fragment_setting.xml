@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:paddingBottom="30dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#161517"
+            android:text="Settings"
+            android:textStyle="bold"
+            android:textSize="35sp"
+            android:paddingLeft="20dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:drawableLeft="@drawable/account"
+                android:drawablePadding="5dp"
+                android:text="Account"
+                android:textColor="#161517"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="___________________________________________________"
+                android:paddingLeft="28dp"
+                android:paddingRight="30dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_editProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My Profile"
+                android:paddingLeft="27dp"
+                android:drawableRight="@drawable/ic_next"
+                android:textSize="20sp"
+                android:layout_marginTop="20sp"
+                />
+            <TextView
+                android:id="@+id/tv_changesPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Changes Password"
+                android:paddingLeft="27dp"
+                android:drawableRight="@drawable/ic_next"
+                android:paddingBottom="15dp"
+                android:textSize="20sp"
+                android:layout_marginTop="20sp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:drawableLeft="@drawable/more"
+                android:drawablePadding="5dp"
+                android:text="More"
+                android:textColor="#161517"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="___________________________________________________"
+                android:paddingLeft="28dp"
+                android:paddingRight="30dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_aboutUs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="About us "
+                android:paddingLeft="27dp"
+                android:drawableRight="@drawable/ic_next"
+                android:textSize="20sp"
+                android:layout_marginTop="20sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Term of service"
+                android:paddingLeft="27dp"
+                android:drawableRight="@drawable/ic_next"
+                android:textSize="20sp"
+                android:layout_marginTop="20sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_website"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Website: https://Megagram.vn"
+                android:paddingLeft="27dp"
+                android:drawableRight="@drawable/ic_next"
+                android:textSize="20sp"
+                android:layout_marginTop="20sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email: feedback0207@megagram"
+                android:paddingLeft="27dp"
+                android:drawableRight="@drawable/ic_next"
+                android:textSize="20sp"
+                android:layout_marginTop="20sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_contactUs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contact us"
+                android:paddingLeft="27dp"
+                android:drawableRight="@drawable/ic_next"
+                android:textSize="20sp"
+                android:layout_marginTop="20sp"
+                />
+
+            <Button
+                android:id="@+id/btnLogOut"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="50dp"
+                android:background="@drawable/custom_button_simple1"
+                android:text="LOG OUT"
+                android:textColor="#ffff"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
