@@ -1,4 +1,4 @@
-package com.manhthong.chatsocketio;
+package com.manhthong.chatsocketio.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,11 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.manhthong.chatsocketio.Message_Activity;
+import com.manhthong.chatsocketio.Adapter.OnlineUserAdapter;
+import com.manhthong.chatsocketio.Model.Online_User;
+import com.manhthong.chatsocketio.R;
 
 import java.util.ArrayList;
 import java.util.List;

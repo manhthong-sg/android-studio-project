@@ -1,4 +1,5 @@
-package com.manhthong.chatsocketio;
+package com.manhthong.chatsocketio.Fragment;
+
 
 import android.content.Intent;
 import android.net.Uri;
@@ -14,6 +15,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.manhthong.chatsocketio.LoginActivity;
+import com.manhthong.chatsocketio.MyProfile;
+import com.manhthong.chatsocketio.R;
+import com.manhthong.chatsocketio.UpdatePassword;
+import com.manhthong.chatsocketio.aboutus;
+import com.manhthong.chatsocketio.contactus;
+import com.manhthong.chatsocketio.service;
 
 public class Setting_Fragment extends Fragment {
     TextView tv_changesPass;
@@ -35,7 +44,7 @@ public class Setting_Fragment extends Fragment {
         tv_changesPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(getActivity(),UpdatePassword.class);
+                Intent intent= new Intent(getActivity(), UpdatePassword.class);
                 startActivity(intent);
             }
         });

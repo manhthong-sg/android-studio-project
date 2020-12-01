@@ -3,6 +3,7 @@ package com.manhthong.chatsocketio;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,6 +13,9 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.manhthong.chatsocketio.Fragment.Active_Status_Fragment;
+import com.manhthong.chatsocketio.Fragment.Message_Fragment;
+import com.manhthong.chatsocketio.Fragment.Setting_Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +29,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
 
+        bottomNav.getMenu().findItem(R.id.nav_message).setChecked(true);
 
+        if(savedInstanceState == null){
+            loadFragment(new Message_Fragment());
+        }
         //I added this if statement to keep the selected fragment when rotating the device
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         if (savedInstanceState == null) {
@@ -55,4 +64,10 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
+    private void loadFragment(Fragment fragment){
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container,fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 }
