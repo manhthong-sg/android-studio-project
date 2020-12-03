@@ -104,13 +104,37 @@
                 android:layout_toLeftOf="@id/btn_send"
                 android:background="@drawable/custom_input_message"
                 android:hint="Type a message..."
-                android:padding="10dp"
+                android:paddingLeft="80dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <ImageButton
+                android:id="@+id/btn_choose_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ic_choose_img"
+                android:layout_marginLeft="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <ImageButton
+                android:id="@+id/btn_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ic_voice"
+                android:layout_marginLeft="45dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
             <ImageButton
                 android:id="@+id/btn_send"
                 android:layout_width="wrap_content"
@@ -122,7 +146,8 @@
                 android:layout_marginTop="10dp"
                 app:layout_constraintBottom_toBottomOf="@id/edt_send"
                 app:layout_constraintEnd_toEndOf="@id/edt_send"
-                app:layout_constraintTop_toTopOf="@id/edt_send" />
+                app:layout_constraintTop_toTopOf="@id/edt_send"
+                android:layout_alignParentEnd="true" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
 
