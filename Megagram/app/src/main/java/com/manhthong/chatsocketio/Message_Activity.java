@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,9 +17,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.github.nkzawa.emitter.Emitter;
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
 import com.manhthong.chatsocketio.Adapter.MessageAdapter;
 import com.manhthong.chatsocketio.Model.MessageFormat;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,12 +48,20 @@ public class Message_Activity extends AppCompatActivity {
     private Thread thread2;
     private boolean startTyping = false;
     private int time = 2;
+    private Socket mSocket;
+    {
+        try {
+            mSocket = IO.socket("http://192.168.13.112:3000");
+        } catch (URISyntaxException e) {
+            Log.d("SocketIO", "connection error");
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
-
+        mSocket.connect();
         //tham chieu
         btnBack=findViewById(R.id.btnBack);
         btnInfo=findViewById(R.id.btnInfo);
@@ -85,11 +101,33 @@ public class Message_Activity extends AppCompatActivity {
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                messageFormatList.add(new MessageFormat("00002","Thông", edt_send.getText().toString()));
-                messageAdapter.notifyDataSetChanged();
-                edt_send.setText("");
 
+                mSocket.emit("client-gui-tn", edt_send.getText());
+                mSocket.on("server-gui-tn", new Emitter.Listener() {
+                    @Override
+                    public void call(final Object... args) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                JSONObject data = (JSONObject) args[0];
+                                String message;
+                                try {
+                                    message = data.getString("noidung");
+                                    messageFormatList.add(new MessageFormat("00002","Thông",message));
+                                    messageAdapter.notifyDataSetChanged();
+
+                                } catch (JSONException e) {
+                                    return;
+                                }
+                            }
+                        });
+                    }
+                });
+
+
+                edt_send.setText("");
             }
+
         });
     }
 }

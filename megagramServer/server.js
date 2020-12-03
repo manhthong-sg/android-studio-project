@@ -13,7 +13,10 @@ io.on('connection', (socket) => {
     // socket.on('thong', (data)=>{
     //   console.log(data);
     // })
-    socket.emit('server_back_tn', "chao em");
+    socket.on('client-gui-tn', (data)=>{
+      console.log(data);
+      io.sockets.emit('server-gui-tn', {noidung: data});
+    })
   });
 
 http.listen(port, function () {
