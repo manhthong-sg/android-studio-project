@@ -5,7 +5,9 @@ public class MessageFormat {
     private String Username;
     private String Message;
     private String UniqueId;
+    public MessageFormat(){
 
+    }
     public MessageFormat(String uniqueId, String username, String message) {
         Username = username;
         Message = message;
