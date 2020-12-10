@@ -1,0 +1,14 @@
+{
+  "name": "server_megagram",
+  "version": "1.0.0",
+  "description": "Megagram is a chat app to communicate people around the world",
+  "main": "server.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9",
+    "socket.io": "^2.3.0",
+    "nodemon": "^2.0.6"
+  }
+}
