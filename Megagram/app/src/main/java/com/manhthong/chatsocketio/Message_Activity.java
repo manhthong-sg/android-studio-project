@@ -59,7 +59,7 @@ public class Message_Activity extends AppCompatActivity {
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket("http://192.168.11.138:3000");
+            mSocket = IO.socket("http://192.168.13.109:3000");
         } catch (URISyntaxException e) {
             Log.d("SocketIO", "connection error");
         }
@@ -106,17 +106,16 @@ public class Message_Activity extends AppCompatActivity {
 //        messageFormatList.add(new MessageFormat("00002", "Thông", "Cậu vui tánh quá :))"));
         messageAdapter = new MessageAdapter(this, R.layout.item_message, arrayList);
         messageListView.setAdapter(messageAdapter);
+        //connect SocketIO and its request
         mSocket.connect();
 
         mSocket.on("onMessage",onNewMessage);
-      //  mSocket.on("user-connect", userID);
-       // mSocket.emit("create",room);
 
         //set su kien onClick cho btnSend
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                messageAdapter.clear();
+                //messageAdapter.clear();
                 mSocket.emit("client-gui-tn", edt_send.getText());
                 edt_send.setText("");
 
@@ -164,18 +163,12 @@ public class Message_Activity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    messageAdapter.clear();
+                    //messageAdapter.clear();
                     JSONObject data = (JSONObject) args[0];
-                    //String data =  args[0].toString();
+                    String message;
                     try {
-                        JSONArray array=data.getJSONArray("noidung");
-                        //Toast.makeText(Message_Activity.this, data.getJSONArray("noidung").toString(), Toast.LENGTH_SHORT).show();
-                        for (int i=0;i<array.length();i++){
-                            messageAdapter.add(new MessageFormat("00002","thong",array.getString(i)));
-                        }
-
-                        //messageAdapter.add(new MessageFormat("00002","Thông",message));
-                      //  tv_header_username.setText(id);
+                        message=data.getString("noidung");
+                        messageAdapter.add(new MessageFormat("00002","Thông",message));
                         messageAdapter.notifyDataSetChanged();
                     } catch (Exception e) {
                         return;
@@ -191,16 +184,16 @@ public class Message_Activity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    JSONObject data1 = (JSONObject) args[0];
+                    JSONObject data = (JSONObject) args[0];
                     //String data =  args[0].toString();
-                    String id;
-                    //String message;
+                    //String id;
+                    String message;
                     try {
-                        //message = data.getString("noidung");
-                        id = data1.getString("socketID");
-                        //messageAdapter.add(new MessageFormat("00002","Thông",message));
-                        tv_header_username.setText(id);
-                        //messageAdapter.notifyDataSetChanged();
+                        message = data.getString("noidung");
+                        //id = data1.getString("socketID");
+                        messageAdapter.add(new MessageFormat("00002","Thông",message));
+                        //tv_header_username.setText(id);
+                        messageAdapter.notifyDataSetChanged();
                         //messageAdapter.clear();
                     } catch (Exception e) {
                         return;
