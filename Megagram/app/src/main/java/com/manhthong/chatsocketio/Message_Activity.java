@@ -119,9 +119,9 @@ public class Message_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mSocket.emit("client-gui-tn", edt_send.getText());
+                messageAdapter.add(new MessageFormat("00002","Thông",edt_send.getText().toString()));
+                messageAdapter.notifyDataSetChanged();
                 edt_send.setText("");
-
-
             }
 
         });
@@ -170,7 +170,7 @@ public class Message_Activity extends AppCompatActivity {
                     String message;
                     try {
                         message=data.getString("noidung");
-                        messageAdapter.add(new MessageFormat("00002","Thông",message));
+                        messageAdapter.add(new MessageFormat("0000333","Thông",message));
                         messageAdapter.notifyDataSetChanged();
                     } catch (Exception e) {
                         return;
