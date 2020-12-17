@@ -59,7 +59,7 @@ public class Message_Activity extends AppCompatActivity {
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket("http://192.168.13.109:3000");
+            mSocket = IO.socket("http://192.168.1.6:3000");
         } catch (URISyntaxException e) {
             Log.d("SocketIO", "connection error");
         }

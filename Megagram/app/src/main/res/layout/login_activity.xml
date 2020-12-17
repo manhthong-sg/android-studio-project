@@ -22,15 +22,17 @@
         app:layout_constraintVertical_bias="0.393">
 
         <EditText
+            android:id="@+id/edt_username"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:backgroundTint="#FFFFFF"
-            android:hint="Username"
+            android:hint="Your number"
             android:paddingBottom="20dp"
             android:textColor="@android:color/white"
             android:textColorHint="#FFFFFF" />
 
         <EditText
+            android:id="@+id/edt_password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"

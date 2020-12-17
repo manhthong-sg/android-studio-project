@@ -60,7 +60,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:backgroundTint="#FFFFFF"
-            android:hint="Full name"
+            android:hint="Display name"
             android:paddingBottom="20dp"
             android:textColor="@android:color/white"
             android:textColorHint="#FFFFFF" />
@@ -70,21 +70,10 @@
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:backgroundTint="#FFFFFF"
-            android:hint="Email"
+            android:hint="Your number"
             android:paddingBottom="20dp"
             android:textColor="@android:color/white"
             android:textColorHint="#FFFFFF" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#FFFFFF"
-            android:hint="Username"
-            android:paddingBottom="20dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#FFFFFF" />
-
 
         <EditText
             android:layout_width="match_parent"
@@ -93,6 +82,18 @@
             android:backgroundTint="#FFFFFF"
             android:hint="Password"
             android:inputType="textPassword"
+            android:paddingBottom="20dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#FFFFFF" />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#FFFFFF"
+            android:hint="Email"
+
             android:paddingBottom="20dp"
             android:textColor="@android:color/white"
             android:textColorHint="#FFFFFF" />
