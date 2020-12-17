@@ -46,7 +46,7 @@ mongoose.connect("mongodb://localhost:27017/megagramDB");
           console.log(username+" "+password);
           if(username=="0796705768" && password=="123"){
               console.log("tdn va pass dung roi!");
-              socket.emit('login_status', {nd: true} )
+              socket.emit('login_status', {nd: true, id: socket.id} )
           }
           else{
             socket.emit('login_status', {nd: false} )
