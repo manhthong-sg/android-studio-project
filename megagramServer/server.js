@@ -36,8 +36,8 @@ mongoose.connect("mongodb://localhost:27017/megagramDB");
     console.log('User Connection '+socket.id);
     
       socket.on('client-gui-tn',function(message){
-          console.log(message);
-          io.sockets.emit('onMessage', {noidung: message})
+          console.log(socket.id+ " "+message);
+          socket.broadcast.emit('onMessage', {noidung: message})
       })
       socket.on('client-login', (user_login)=>{
 
