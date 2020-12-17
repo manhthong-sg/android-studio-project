@@ -27,7 +27,9 @@
 
         <activity android:name=".contactus" />
         <activity android:name=".editproflie" />
-        <activity android:name=".Profile" />
+        <activity android:name=".Profile">
+
+        </activity>
         <activity android:name=".service" />
         <activity android:name=".UpdatePassword" />
         <activity android:name=".LoginActivity">

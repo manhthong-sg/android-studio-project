@@ -208,7 +208,7 @@
 
         </LinearLayout>
         <Button
-            android:id="@+id/button_apply"
+            android:id="@+id/btn_changeInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_view_selected"

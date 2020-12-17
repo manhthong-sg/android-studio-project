@@ -37,7 +37,7 @@ public class Message_Fragment extends Fragment  {
     List<User_Message> lst_user_massage;
     UserMessageAdapter adapter;
     EditText edt_search;
-
+    String id;
     //request socketIO
     private Socket mSocket;
     {
@@ -55,7 +55,8 @@ public class Message_Fragment extends Fragment  {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_message, container, false);
-        mSocket.connect();
+        //id=get;
+        //mSocket.connect();
         //anh xa
         lv_user_massage=view.findViewById(R.id.lv_userMessage);
         edt_search=view.findViewById(R.id.edt_search);

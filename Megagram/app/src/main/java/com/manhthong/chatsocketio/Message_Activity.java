@@ -59,7 +59,7 @@ public class Message_Activity extends AppCompatActivity {
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket("http://192.168.1.6:3000");
+            mSocket = IO.socket("http://192.168.43.94:3000");
         } catch (URISyntaxException e) {
             Log.d("SocketIO", "connection error");
         }
@@ -70,6 +70,9 @@ public class Message_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
+        //nhan data from login
+        //uniqueId = getIntent().getStringExtra("id");
+//        Log.d("test", uniqueId);
         //tham chieu
         btnBack=findViewById(R.id.btnBack);
         btnInfo=findViewById(R.id.btnInfo);
@@ -94,16 +97,16 @@ public class Message_Activity extends AppCompatActivity {
         messageListView = findViewById(R.id.messageListView);
 
         messageFormatList = new ArrayList<>();
-//        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Chào cậu"));
-//        messageFormatList.add(new MessageFormat("00002", "Thông", "Chào cậu :))"));
-//        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Cậu ăn cơm chưa????"));
-//        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Có ăn cơm với canh không????"));
-//        messageFormatList.add(new MessageFormat("00002", "Thông", "Cậu vui tánh quá :))"));
-//        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Cậu quá khen hihi :))"));
-//        messageFormatList.add(new MessageFormat("00002", "Thông", ":) "));
-//        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Cậu ăn cơm chưa????"));
-//        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Có ăn cơm với canh không????"));
-//        messageFormatList.add(new MessageFormat("00002", "Thông", "Cậu vui tánh quá :))"));
+        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Chào cậu"));
+        messageFormatList.add(new MessageFormat("00002", "Thông", "Chào cậu :))"));
+        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Cậu ăn cơm chưa????"));
+        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Có ăn cơm với canh không????"));
+        messageFormatList.add(new MessageFormat("00002", "Thông", "Cậu vui tánh quá :))"));
+        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Cậu quá khen hihi :))"));
+        messageFormatList.add(new MessageFormat("00002", "Thông", ":) "));
+        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Cậu ăn cơm chưa????"));
+        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Có ăn cơm với canh không????"));
+        messageFormatList.add(new MessageFormat("00002", "Thông", "Cậu vui tánh quá :))"));
         messageAdapter = new MessageAdapter(this, R.layout.item_message, arrayList);
         messageListView.setAdapter(messageAdapter);
         //connect SocketIO and its request
@@ -115,7 +118,6 @@ public class Message_Activity extends AppCompatActivity {
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //messageAdapter.clear();
                 mSocket.emit("client-gui-tn", edt_send.getText());
                 edt_send.setText("");
 

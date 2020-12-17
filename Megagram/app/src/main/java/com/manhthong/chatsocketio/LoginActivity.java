@@ -24,12 +24,12 @@ import java.net.URISyntaxException;
 public class LoginActivity extends AppCompatActivity {
     TextView tvSignUp;
     Button btnSignIn;
-    Boolean Login_Status=false;
+    //Boolean Login_Status=false;
     EditText edt_username, edt_password;
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket("http://192.168.13.108:3000");
+            mSocket = IO.socket("http://192.168.43.94:3000");
         } catch (URISyntaxException e) {
             Log.d("SocketIO", "connection error");
         }
@@ -90,11 +90,6 @@ public class LoginActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 mSocket.emit("client-login", user_login);
-//                if(Login_Status==true){
-//                    Intent intentSignUp= new Intent(LoginActivity.this, MainActivity.class);
-//                    //finish();
-//                    startActivity(intentSignUp);
-//                }
 
 
             }
@@ -108,15 +103,19 @@ public class LoginActivity extends AppCompatActivity {
                 public void run() {
                     JSONObject data = (JSONObject) args[0];
                     String nd;
+                    //String id;
                     try {
                         nd=data.getString("nd");
-                        if(nd!="true") {
+                        //id=data.getString("id");
+                        //Log.d("test", id);
+                        if(nd !="true") {
                             edt_username.setText("Wrong info, try again!");
                         }
                         else{
-                            Intent intentSignUp= new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intentSignIn= new Intent(LoginActivity.this, MainActivity.class);
+                            //intentSignIn.putExtra("id", id);
                             finish();
-                            startActivity(intentSignUp);
+                            startActivity(intentSignIn);
                         }
                     } catch (Exception e) {
                         return;

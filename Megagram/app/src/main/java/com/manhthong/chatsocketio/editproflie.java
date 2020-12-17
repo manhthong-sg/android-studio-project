@@ -23,6 +23,7 @@ public class editproflie extends AppCompatActivity {
     TextView textView;
     EditText edt_date;
     ImageButton btnBack;
+    Button btn_ChangeInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +31,7 @@ public class editproflie extends AppCompatActivity {
         radioGroup = findViewById(R.id.radioGroup);
         textView = findViewById(R.id.text_view_selected);
         btnBack=findViewById(R.id.btnBack);
+        btn_ChangeInfo=findViewById(R.id.btn_changeInfo);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,13 +47,14 @@ public class editproflie extends AppCompatActivity {
             }
         });
         //chon gioi tinh
-        Button buttonApply = findViewById(R.id.button_apply);
-        buttonApply.setOnClickListener(new View.OnClickListener() {
+        //Button buttonApply = findViewById(R.id.button_apply);
+        btn_ChangeInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int radioId = radioGroup.getCheckedRadioButtonId();
-                radioButton = findViewById(radioId);
-                textView.setText("Your choice: " + radioButton.getText());
+//                int radioId = radioGroup.getCheckedRadioButtonId();
+//                radioButton = findViewById(radioId);
+//                textView.setText("Your choice: " + radioButton.getText());
+                Toast.makeText(editproflie.this, "Thay đổi thông tin thành công.", Toast.LENGTH_LONG).show();
             }
         });
     }
