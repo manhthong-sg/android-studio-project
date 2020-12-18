@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.manhthong.chatsocketio.MainActivity;
 import com.manhthong.chatsocketio.Message_Activity;
 import com.manhthong.chatsocketio.Model.MessageFormat;
 import com.manhthong.chatsocketio.R;
@@ -38,8 +39,8 @@ public class MessageAdapter extends ArrayAdapter<MessageFormat> {
 //            messageText.setText(userConnected);
 //
 //        }else
-            if(message.getUniqueId().equals("00002")){//equals(Message_Activity.uniqueId)
-            Log.i(Message_Activity.TAG, "getView: " + message.getUniqueId() + " " + Message_Activity.uniqueId);
+            if(message.getUniqueId().equals(MainActivity.uniqueId)){//equals(Message_Activity.uniqueId)
+            //Log.i(Message_Activity.TAG, "getView: " + message.getUniqueId() + " " + Message_Activity.uniqueId);
 
 
             convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.my_message, parent, false);

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static String uniqueId;
 
 
     @Override
@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
+
+        //nhan data from login
+        uniqueId = getIntent().getStringExtra("id");
 
         bottomNav.getMenu().findItem(R.id.nav_message).setChecked(true);
 

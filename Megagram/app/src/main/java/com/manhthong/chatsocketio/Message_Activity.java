@@ -43,7 +43,7 @@ public class Message_Activity extends AppCompatActivity {
     List<MessageFormat> messageFormatList;
     public static final String TAG  = "Message_Activity";
     ArrayList<MessageFormat>arrayList=new ArrayList<>();
-    public static String uniqueId;
+    //public static String uniqueId;
 
     private String Username;
 
@@ -59,7 +59,7 @@ public class Message_Activity extends AppCompatActivity {
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket("http://192.168.43.94:3000");
+            mSocket = IO.socket("http://192.168.13.103:3000");
         } catch (URISyntaxException e) {
             Log.d("SocketIO", "connection error");
         }
@@ -70,8 +70,7 @@ public class Message_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
-        //nhan data from login
-        //uniqueId = getIntent().getStringExtra("id");
+
 //        Log.d("test", uniqueId);
         //tham chieu
         btnBack=findViewById(R.id.btnBack);
@@ -98,16 +97,16 @@ public class Message_Activity extends AppCompatActivity {
 
         messageFormatList = new ArrayList<>();
         messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Chào cậu"));
-        messageFormatList.add(new MessageFormat("00002", "Thông", "Chào cậu :))"));
+        messageFormatList.add(new MessageFormat(MainActivity.uniqueId, "Thông", "Chào cậu :))"));
         messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Cậu ăn cơm chưa????"));
         messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Có ăn cơm với canh không????"));
-        messageFormatList.add(new MessageFormat("00002", "Thông", "Cậu vui tánh quá :))"));
+        messageFormatList.add(new MessageFormat(MainActivity.uniqueId, "Thông", "Cậu vui tánh quá :))"));
         messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Cậu quá khen hihi :))"));
-        messageFormatList.add(new MessageFormat("00002", "Thông", ":) "));
+        messageFormatList.add(new MessageFormat(MainActivity.uniqueId, "Thông", ":) "));
         messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Cậu ăn cơm chưa????"));
         messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Có ăn cơm với canh không????"));
-        messageFormatList.add(new MessageFormat("00002", "Thông", "Cậu vui tánh quá :))"));
-        messageAdapter = new MessageAdapter(this, R.layout.item_message, arrayList);
+        messageFormatList.add(new MessageFormat(MainActivity.uniqueId, "Thông", "Cậu vui tánh quá :))"));
+        messageAdapter = new MessageAdapter(this, R.layout.item_message, messageFormatList);
         messageListView.setAdapter(messageAdapter);
         //connect SocketIO and its request
         mSocket.connect();
@@ -119,7 +118,7 @@ public class Message_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mSocket.emit("client-gui-tn", edt_send.getText());
-                messageAdapter.add(new MessageFormat("00002","Thông",edt_send.getText().toString()));
+                messageAdapter.add(new MessageFormat(MainActivity.uniqueId,"Thông",edt_send.getText().toString()));
                 messageAdapter.notifyDataSetChanged();
                 edt_send.setText("");
             }
@@ -141,7 +140,7 @@ public class Message_Activity extends AppCompatActivity {
                 try {
                     onTyping.put("typing", true);
                     onTyping.put("username", Username);
-                    onTyping.put("uniqueId", uniqueId);
+                    //onTyping.put("uniqueId", uniqueId);
                     mSocket.emit("on typing", onTyping);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -170,7 +169,7 @@ public class Message_Activity extends AppCompatActivity {
                     String message;
                     try {
                         message=data.getString("noidung");
-                        messageAdapter.add(new MessageFormat("0000333","Thông",message));
+                        messageAdapter.add(new MessageFormat("00003","Thông",message));
                         messageAdapter.notifyDataSetChanged();
                     } catch (Exception e) {
                         return;

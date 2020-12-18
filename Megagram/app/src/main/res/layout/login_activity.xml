@@ -27,6 +27,7 @@
             android:layout_height="50dp"
             android:backgroundTint="#FFFFFF"
             android:hint="Your number"
+            android:inputType="number"
             android:paddingBottom="20dp"
             android:textColor="@android:color/white"
             android:textColorHint="#FFFFFF" />

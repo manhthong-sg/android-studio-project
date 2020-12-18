@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket("http://192.168.43.94:3000");
+            mSocket = IO.socket("http://192.168.13.103:3000");
         } catch (URISyntaxException e) {
             Log.d("SocketIO", "connection error");
         }
@@ -39,25 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
 
-//        mSocket.connect();
-//        mSocket.on("server-gui-tn", new Emitter.Listener() {
-//            @Override
-//            public void call(final Object... args) {
-//                runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        JSONObject data = (JSONObject) args[0];
-//                        String message;
-//                        try {
-//                            message = data.getString("noidung");
-//                            btnSignIn.setText(message);
-//                        } catch (JSONException e) {
-//                            return;
-//                        }
-//                    }
-//                });
-//            }
-//        });
+
         //connect socket va xu ly
         mSocket.connect();
         mSocket.on("login_status", login_status);
@@ -103,17 +85,17 @@ public class LoginActivity extends AppCompatActivity {
                 public void run() {
                     JSONObject data = (JSONObject) args[0];
                     String nd;
-                    //String id;
+                    String id;
                     try {
                         nd=data.getString("nd");
-                        //id=data.getString("id");
+                        id=edt_username.toString();
                         //Log.d("test", id);
-                        if(nd !="true") {
+                        if(nd =="false") {
                             edt_username.setText("Wrong info, try again!");
                         }
                         else{
                             Intent intentSignIn= new Intent(LoginActivity.this, MainActivity.class);
-                            //intentSignIn.putExtra("id", id);
+                            intentSignIn.putExtra("id", id);
                             finish();
                             startActivity(intentSignIn);
                         }
