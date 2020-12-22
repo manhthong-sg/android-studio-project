@@ -120,13 +120,7 @@ public class Message_Activity extends AppCompatActivity {
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                HashMap hashMap = new HashMap();
-//                hashMap.put("senderId", MainActivity.uniqueId);
-//                //hashMap.put("roomId", r);
-//                hashMap.put("nd", edt_send.getText().toString());
-//                //hashMap.put("time", time);
-//                JSONObject client_gui_tn = new JSONObject(hashMap);
-                //JSONArray array = new JSONArray();
+
                 JSONObject message_container = new JSONObject();
                 try {
                     message_container.put("senderId", MainActivity.uniqueId);
@@ -195,7 +189,7 @@ public class Message_Activity extends AppCompatActivity {
                         message=data.getString("noidung");
                         id=data.getString("id");
                         if(MainActivity.uniqueId==id) {
-                            messageAdapter.add(new MessageFormat(id, "Thông", message));
+                            messageAdapter.add(new MessageFormat(MainActivity.uniqueId, "Thông", message));
                             messageAdapter.notifyDataSetChanged();
                         }
                         else {

@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                     String id;
                     try {
                         nd=data.getString("nd");
-                        id=edt_username.toString();
+                        id=edt_username.getText().toString();
                         //Log.d("test", id);
                         if(nd =="false") {
                             edt_username.setError("Phone number or password are wrong");

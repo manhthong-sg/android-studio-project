@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         //nhan data from login
         uniqueId = getIntent().getStringExtra("id");
-
+        Log.d("tdn", uniqueId);
         bottomNav.getMenu().findItem(R.id.nav_message).setChecked(true);
 
         if(savedInstanceState == null){
