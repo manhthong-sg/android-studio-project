@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.manhthong.chatsocketio.Adapter.RecyclerViewAdapter;
 import com.manhthong.chatsocketio.Adapter.UserMessageAdapter;
+import com.manhthong.chatsocketio.MainActivity;
 import com.manhthong.chatsocketio.Message_Activity;
 import com.manhthong.chatsocketio.Model.Image_Message;
 import com.manhthong.chatsocketio.R;
@@ -108,6 +109,17 @@ public class Message_Fragment extends Fragment  {
 
         return view;
 
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        edt_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) getActivity()).switchFragment(new SearchFragment());
+                //edt_search.setFocusable(true);
+            }
+        });
     }
 
 }

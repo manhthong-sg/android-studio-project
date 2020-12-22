@@ -70,7 +70,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:backgroundTint="#FFFFFF"
-            android:hint="Your number"
+            android:hint="Phone number"
             android:paddingBottom="20dp"
             android:textColor="@android:color/white"
             android:textColorHint="#FFFFFF" />

@@ -105,6 +105,7 @@
                 android:background="@drawable/custom_input_message"
                 android:hint="Type a message..."
                 android:paddingLeft="80dp"
+                android:paddingRight="50dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
