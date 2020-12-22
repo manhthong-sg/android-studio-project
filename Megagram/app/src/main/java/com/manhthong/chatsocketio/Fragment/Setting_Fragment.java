@@ -1,6 +1,7 @@
 package com.manhthong.chatsocketio.Fragment;
 
 
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,11 +12,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
 import com.manhthong.chatsocketio.LoginActivity;
 import com.manhthong.chatsocketio.MyProfile;
 import com.manhthong.chatsocketio.R;
@@ -24,15 +28,23 @@ import com.manhthong.chatsocketio.aboutus;
 import com.manhthong.chatsocketio.contactus;
 import com.manhthong.chatsocketio.service;
 
+import java.net.URISyntaxException;
+
 public class Setting_Fragment extends Fragment {
     TextView tv_changesPass;
     Button btnLogout;
     TextView tv_myProfile, tv_aboutUs, tv_service, tv_contactUs;
-
+    private Socket mSocket;
+    {
+        try {
+            mSocket = IO.socket("http://172.168.10.233:3000");
+        } catch (URISyntaxException e) {}
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_setting,container,false);
+        mSocket.connect();
         //tham chieu
         tv_changesPass=view.findViewById(R.id.tv_changesPass);
         btnLogout=view.findViewById(R.id.btnLogOut);
@@ -68,10 +80,18 @@ public class Setting_Fragment extends Fragment {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent=new Intent(getActivity(), LoginActivity.class);
+                if(mSocket.connected()) {
+                    mSocket.disconnect();
+                    //user = null;
+                    //getSystemService(NotificationManager.class).cancelAll();
+                    Toast.makeText(getActivity(), "Socket disconnected", Toast.LENGTH_SHORT).show();
+                }
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
                 getActivity().finish();
                 startActivity(intent);
+//                Intent intent=new Intent(getActivity(), LoginActivity.class);
+//                getActivity().finish();
+//                startActivity(intent);
             }
         });
         //onClick cho service

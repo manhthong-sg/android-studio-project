@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket("http://192.168.13.103:3000");
+            mSocket = IO.socket("http://172.168.10.233:3000");
         } catch (URISyntaxException e) {
             Log.d("SocketIO", "connection error");
         }
@@ -91,7 +91,8 @@ public class LoginActivity extends AppCompatActivity {
                         id=edt_username.toString();
                         //Log.d("test", id);
                         if(nd =="false") {
-                            edt_username.setText("Wrong info, try again!");
+                            edt_username.setError("Phone number or password are wrong");
+                            edt_password.setError("Phone number or password are wrong");
                         }
                         else{
                             Intent intentSignIn= new Intent(LoginActivity.this, MainActivity.class);

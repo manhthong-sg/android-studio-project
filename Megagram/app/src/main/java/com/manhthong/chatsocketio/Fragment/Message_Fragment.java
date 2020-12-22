@@ -43,7 +43,7 @@ public class Message_Fragment extends Fragment  {
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket("http://172.16.96.144:3000");
+            mSocket = IO.socket("http://172.168.10.233:3000");
         } catch (URISyntaxException e) {}
     }
     //test recyclerview

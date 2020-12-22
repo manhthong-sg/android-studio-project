@@ -33,6 +33,9 @@ import org.json.JSONObject;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class Message_Activity extends AppCompatActivity {
@@ -54,12 +57,12 @@ public class Message_Activity extends AppCompatActivity {
 
     private Thread thread2;
     private boolean startTyping = false;
-    private int time = 2;
+    private int time;
     String room="1";
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket("http://192.168.13.103:3000");
+            mSocket = IO.socket("http://172.168.10.233:3000");
         } catch (URISyntaxException e) {
             Log.d("SocketIO", "connection error");
         }
@@ -117,9 +120,29 @@ public class Message_Activity extends AppCompatActivity {
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSocket.emit("client-gui-tn", edt_send.getText());
-                messageAdapter.add(new MessageFormat(MainActivity.uniqueId,"Thông",edt_send.getText().toString()));
-                messageAdapter.notifyDataSetChanged();
+//                HashMap hashMap = new HashMap();
+//                hashMap.put("senderId", MainActivity.uniqueId);
+//                //hashMap.put("roomId", r);
+//                hashMap.put("nd", edt_send.getText().toString());
+//                //hashMap.put("time", time);
+//                JSONObject client_gui_tn = new JSONObject(hashMap);
+                //JSONArray array = new JSONArray();
+                JSONObject message_container = new JSONObject();
+                try {
+                    message_container.put("senderId", MainActivity.uniqueId);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    message_container.put("nd", edt_send.getText().toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                mSocket.emit("client-gui-tn", message_container);
+                //hashMap.clear();
+//                messageAdapter.add(new MessageFormat(MainActivity.uniqueId,"Thông",edt_send.getText().toString()));
+//                messageAdapter.notifyDataSetChanged();
                 edt_send.setText("");
             }
 
@@ -167,10 +190,18 @@ public class Message_Activity extends AppCompatActivity {
                     //messageAdapter.clear();
                     JSONObject data = (JSONObject) args[0];
                     String message;
+                    String id;
                     try {
                         message=data.getString("noidung");
-                        messageAdapter.add(new MessageFormat("00003","Thông",message));
-                        messageAdapter.notifyDataSetChanged();
+                        id=data.getString("id");
+                        if(MainActivity.uniqueId==id) {
+                            messageAdapter.add(new MessageFormat(id, "Thông", message));
+                            messageAdapter.notifyDataSetChanged();
+                        }
+                        else {
+                            messageAdapter.add(new MessageFormat(id, "Thông", message));
+                            messageAdapter.notifyDataSetChanged();
+                        }
                     } catch (Exception e) {
                         return;
                     }

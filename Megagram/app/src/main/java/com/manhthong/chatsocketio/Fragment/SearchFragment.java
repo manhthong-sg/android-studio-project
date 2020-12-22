@@ -21,12 +21,6 @@ import com.manhthong.chatsocketio.R;
 import java.util.ArrayList;
 
 public class SearchFragment extends Fragment  {
-//    ArrayList<Product> products;
-//    ProductSearchAdapter productSearchAdapter;
-//    ProductDAO productDAO;
-//    RecyclerView rcvProduct;
-//    AutoCompleteTextView actvProduct;
-//    SwipeRefreshLayout srlProduct;
 
     public SearchFragment() {
     }
@@ -58,14 +52,4 @@ public class SearchFragment extends Fragment  {
         //loadProduct();
 
     }
-
-
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        ((HomeUserActivity) getActivity()).changeBackButton();
-//        ((HomeUserActivity) getActivity()).getSupportActionBar().setTitle("Tìm kiếm");
-//    }
-
-
 }
