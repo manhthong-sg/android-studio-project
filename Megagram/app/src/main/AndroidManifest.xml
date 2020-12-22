@@ -14,6 +14,7 @@
         android:icon="@mipmap/megagram_logo"
         android:theme="@style/Theme.ChatSocketIO"
         tools:targetApi="m">
+
         <activity android:name=".Message_Activity">
 
         </activity>
@@ -30,6 +31,7 @@
         <activity android:name=".Profile">
 
         </activity>
+
         <activity android:name=".service" />
         <activity android:name=".UpdatePassword" />
         <activity android:name=".LoginActivity">
