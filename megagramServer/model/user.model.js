@@ -9,12 +9,12 @@ const userSchema = new mongoose.Schema({
             message: "Display name is not null and empty"
         }
     },
-    accountName: {
+    email: {
         type: String,
         unique: true,
         validate: {
-            validator: accountName => accountName !== "",
-            message: "Account name is not null and empty"
+            validator: email => email !== "",
+            message: "Email is not null and empty"
         }
     },
     password: {
@@ -35,9 +35,9 @@ const userSchema = new mongoose.Schema({
 
 const User = new mongoose.model('user', userSchema, 'user');
 
-const Login = async (accountName, password) => {
+const Login = async (phoneNumber, password) => {
     try {
-        const user = await User.findOne({ accountName: accountName, password: password});
+        const user = await User.findOne({ phoneNumber: phoneNumber, password: password});
         if(user == null) {
             return {};
         } 
@@ -82,12 +82,13 @@ const GetUserDisplayName = async userId => {
     }
 }
 
-const InsertUser = async (accountName, password, displayName, phoneNumber) => {
+const InsertUser = async (phoneNumber, password, displayName, email ) => {
     var user = new User();
-    user.accountName = accountName;
+    //user.accountName = accountName;
     user.password = password;
     user.displayName = displayName;
     user.phoneNumber = phoneNumber;
+    user.email=email;
     try {
         await User.create(user);
     } catch(err) {
@@ -97,22 +98,30 @@ const InsertUser = async (accountName, password, displayName, phoneNumber) => {
     return user;
 }
 
-const FindUserByAccountName = async accountName => {
+const FindUserByDisplayName = async displayName => {
     try {
-        const users = await User.find({ accountName: accountName });
+        const users = await User.find({ displayName: displayName });
         return users;
     } catch(err) {
         console.log(err);
         return null;
     }
 }
-
-const UpdateUser = async (userId, accountName, displayName, password, phoneNumber) => {
+const FindUserByPhoneNumber = async phoneNumber => {
+    try {
+        const users = await User.find({ phoneNumber: phoneNumber });
+        return users;
+    } catch(err) {
+        console.log(err);
+        return null;
+    }
+}
+const UpdateUser = async (userId, phoneNumber, password, displayName, email ) => {
     const updateObj = {
-        accountName: accountName,
         displayName: displayName,
         password: password,
-        phoneNumber: phoneNumber
+        phoneNumber: phoneNumber,
+        email: email;
     };
     try {
         const user = await User.findByIdAndUpdate(
@@ -133,6 +142,7 @@ module.exports = {
     SearchUserByDisplayName,
     GetUserDisplayName,
     InsertUser,
-    FindUserByAccountName,
+    FindUserByDisplayName,
+    FindUserByPhoneNumber,
     UpdateUser
 }
