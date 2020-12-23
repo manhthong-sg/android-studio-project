@@ -1,8 +1,10 @@
 package com.manhthong.chatsocketio;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -32,6 +34,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.URISyntaxException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -47,7 +52,7 @@ public class Message_Activity extends AppCompatActivity {
     public static final String TAG  = "Message_Activity";
     ArrayList<MessageFormat>arrayList=new ArrayList<>();
     //public static String uniqueId;
-
+    public String Time;
     private String Username;
 
     private Boolean hasConnection = false;
@@ -62,7 +67,7 @@ public class Message_Activity extends AppCompatActivity {
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket("http://192.168.13.103:3000");
+            mSocket = IO.socket("http://172.168.10.233:3000");
         } catch (URISyntaxException e) {
             Log.d("SocketIO", "connection error");
         }
@@ -99,18 +104,60 @@ public class Message_Activity extends AppCompatActivity {
         messageListView = findViewById(R.id.messageListView);
 
         messageFormatList = new ArrayList<>();
-        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Chào cậu"));
-        messageFormatList.add(new MessageFormat(MainActivity.uniqueId, "Thông", "Chào cậu :))"));
-        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Cậu ăn cơm chưa????"));
-        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Có ăn cơm với canh không????"));
-        messageFormatList.add(new MessageFormat(MainActivity.uniqueId, "Thông", "Cậu vui tánh quá :))"));
-        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Cậu quá khen hihi :))"));
-        messageFormatList.add(new MessageFormat(MainActivity.uniqueId, "Thông", ":) "));
-        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Cậu ăn cơm chưa????"));
-        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Có ăn cơm với canh không????"));
-        messageFormatList.add(new MessageFormat(MainActivity.uniqueId, "Thông", "Cậu vui tánh quá :))"));
+        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Chào cậu", "00:00"));
+        messageFormatList.add(new MessageFormat(MainActivity.uniqueId, "Thông", "Chào cậu :))", "00:01"));
+        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Cậu ăn cơm chưa????", "00:02"));
+        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Có ăn cơm với canh không????", "00:03"));
+        messageFormatList.add(new MessageFormat(MainActivity.uniqueId, "Thông", "Cậu vui tánh quá :))", "00:04"));
+        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Cậu quá khen hihi :))", "00:06"));
+        messageFormatList.add(new MessageFormat(MainActivity.uniqueId, "Thông", ":) ", "00:09"));
+        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Cậu ăn cơm chưa????", "00:12"));
+        messageFormatList.add(new MessageFormat("00001", "Hữu Lộc", "Có ăn cơm với canh không????", "00:18"));
+        messageFormatList.add(new MessageFormat(MainActivity.uniqueId, "Thông", "Cậu vui tánh quá :))", "00:24"));
+
+//        MessageFormat messageFormatLast=messageFormatList.get(messageFormatList.size()-1);
+//        TextView message_time = findViewById(R.id.message_time);
+//        message_time.setVisibility(View.VISIBLE);
+//        messageFormatLast.getTime();
         messageAdapter = new MessageAdapter(this, R.layout.item_message, messageFormatList);
         messageListView.setAdapter(messageAdapter);
+
+        //set onclick to messageListView
+
+        messageListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            Integer count=0;
+            int pos;
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    if(pos!=position)
+                    {
+                        TextView message_time = view.findViewById(R.id.message_time);
+                        message_time.setVisibility(View.VISIBLE);
+                        //messageAdapter.notifyDataSetChanged();
+                        pos=position;
+                    }
+                    else {
+                        TextView message_time = view.findViewById(R.id.message_time);
+                        message_time.setVisibility(View.GONE);
+                        pos=-1;
+                    }
+                //messageAdapter.notifyDataSetChanged();
+            }
+        });
+//        messageListView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if(hasFocus) {
+//                    TextView message_time = v.findViewById(R.id.message_time);
+//                    message_time.setVisibility(View.VISIBLE);
+//                }
+//                else {
+//                    TextView message_time = v.findViewById(R.id.message_time);
+//                    message_time.setVisibility(View.GONE);
+//                }
+//            }
+//        });
         //connect SocketIO and its request
         mSocket.connect();
 
@@ -118,6 +165,7 @@ public class Message_Activity extends AppCompatActivity {
 
         //set su kien onClick cho btnSend
         btn_send.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
 
@@ -132,11 +180,18 @@ public class Message_Activity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("E HH:mm a");
+                LocalDateTime now = LocalDateTime.now();
+                Time=dtf.format(now);
+                try {
+                    message_container.put("time", Time );
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
+                //emit tin nhan di toi server
                 mSocket.emit("client-gui-tn", message_container);
-                //hashMap.clear();
-//                messageAdapter.add(new MessageFormat(MainActivity.uniqueId,"Thông",edt_send.getText().toString()));
-//                messageAdapter.notifyDataSetChanged();
+
                 edt_send.setText("");
             }
 
@@ -185,15 +240,17 @@ public class Message_Activity extends AppCompatActivity {
                     JSONObject data = (JSONObject) args[0];
                     String message;
                     String id;
+                    String time;
                     try {
-                        message=data.getString("noidung");
                         id=data.getString("id");
+                        message=data.getString("noidung");
+                        time=data.getString("time");
                         if(MainActivity.uniqueId==id) {
-                            messageAdapter.add(new MessageFormat(MainActivity.uniqueId, "Thông", message));
+                            messageAdapter.add(new MessageFormat(MainActivity.uniqueId, "Thông", message, time));
                             messageAdapter.notifyDataSetChanged();
                         }
                         else {
-                            messageAdapter.add(new MessageFormat(id, "Thông", message));
+                            messageAdapter.add(new MessageFormat(id, "Thông", message, time));
                             messageAdapter.notifyDataSetChanged();
                         }
                     } catch (Exception e) {
@@ -217,7 +274,7 @@ public class Message_Activity extends AppCompatActivity {
                     try {
                         message = data.getString("noidung");
                         //id = data1.getString("socketID");
-                        messageAdapter.add(new MessageFormat("00002","Thông",message));
+                        messageAdapter.add(new MessageFormat("00002","Thông",message, "00:00"));
                         //tv_header_username.setText(id);
                         messageAdapter.notifyDataSetChanged();
                         //messageAdapter.clear();

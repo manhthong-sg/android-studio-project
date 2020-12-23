@@ -4,14 +4,16 @@ public class MessageFormat {
 
     private String Username;
     private String Message;
+    private String Time;
     private String UniqueId;
     public MessageFormat(){
 
     }
-    public MessageFormat(String uniqueId, String username, String message) {
+    public MessageFormat(String uniqueId, String username, String message, String time) {
         Username = username;
         Message = message;
         UniqueId = uniqueId;
+        Time=time;
     }
 
     public String getUsername() {
@@ -36,5 +38,13 @@ public class MessageFormat {
 
     public void setUniqueId(String uniqueId) {
         UniqueId = uniqueId;
+    }
+
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String time) {
+        Time = time;
     }
 }

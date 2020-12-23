@@ -13,17 +13,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.manhthong.chatsocketio.Fragment.Active_Status_Fragment;
 import com.manhthong.chatsocketio.Fragment.Message_Fragment;
 import com.manhthong.chatsocketio.Fragment.Setting_Fragment;
 
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public static String uniqueId;
-
+    private Socket mSocket;
+    {
+        try {
+            mSocket = IO.socket("http://172.168.10.233:3000");
+        } catch (URISyntaxException e) {}
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
-
+        //connect to socketIO
+        mSocket.connect();
         //nhan data from login
         uniqueId = getIntent().getStringExtra("id");
         Log.d("tdn", uniqueId);

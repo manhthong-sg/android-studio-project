@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket("http://192.168.13.103:3000");
+            mSocket = IO.socket("http://172.168.10.233:3000");
         } catch (URISyntaxException e) {
             Log.d("SocketIO", "connection error");
         }
