@@ -35,8 +35,8 @@ mongoose.connect("mongodb://localhost:27017/megagramDB");
       console.log('User Connection '+socket.id);
       //server nhan tin nhan
       socket.on('client-gui-tn',function(message){
-          console.log(message.senderId+ " "+ message.nd);
-          io.sockets.emit('onMessage', {id: message['senderId'], noidung: message.nd})
+          console.log(message.senderId+ ": "+ message.nd + " send at: "+ message.time);
+          io.sockets.emit('onMessage', {id: message['senderId'], noidung: message.nd, time: message.time})
       })
 
       // Add user to new room
@@ -66,11 +66,11 @@ mongoose.connect("mongodb://localhost:27017/megagramDB");
           var password = user_login['password'];
           console.log(username+" "+password);
           
-          if(username=="0796705768" && password=="123"){
+          if(username=="1234" && password=="1234"){
               console.log("tdn va pass dung roi!");
               socket.emit('login_status', {nd: true, id: socket.id} )
           }
-          if(username=="0522684068" && password=="123"){
+          if(username=="123" && password=="123"){
             console.log("tdn va pass dung roi!");
             socket.emit('login_status', {nd: true, id: socket.id} )
         }

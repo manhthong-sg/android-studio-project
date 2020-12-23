@@ -73,7 +73,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_action_bar"
 
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginBottom="10dp"
         android:paddingBottom="60dp"
         android:stackFromBottom="true"
         android:transcriptMode="alwaysScroll"
