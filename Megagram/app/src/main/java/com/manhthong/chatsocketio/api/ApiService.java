@@ -7,7 +7,9 @@ import com.manhthong.chatsocketio.Model.User;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 public interface ApiService {
     //Link API 172.168.10.233:3000/users
@@ -17,11 +19,14 @@ public interface ApiService {
             .create();
 
     ApiService apiService= new Retrofit.Builder()
-            .baseUrl("172.168.10.233:3000")
+            .baseUrl("http://172.168.10.233:3000")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService.class);
 
     @GET("/users")
     Call<User> showUser();
+
+    @POST("/users")
+    Call<User> insertUser(@Body User user);
 }

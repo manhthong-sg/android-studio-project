@@ -16,8 +16,14 @@ import android.widget.Toast;
 
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
+import com.manhthong.chatsocketio.Model.User;
+import com.manhthong.chatsocketio.api.ApiService;
 
 import java.net.URISyntaxException;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SignUpActivity extends AppCompatActivity {
     TextView tvSignIn;
@@ -142,25 +148,51 @@ public class SignUpActivity extends AppCompatActivity {
         btn_signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (displayName_flag==true && phoneNumber_flag==true && password_flag==true && email_flag==true ) {
+                if(checkValuedation()==true){
                     Toast.makeText(SignUpActivity.this, "Sign Up Successfuly!", Toast.LENGTH_LONG).show();
+                    sendUser();
+                    finish();
                 }
-                else {
-                    if (!displayName_flag){
-                        edt_displayName.setError("Display name is required.");
-                    }
-                    if (!phoneNumber_flag){
-                        edt_phoneNumber.setError("Phone number is required.");
-                    }
-                    if (!password_flag){
-                        edt_password.setError("Password is required.");
-                    }
-                    if (!email_flag){
-                        edt_email.setError("Email is required.");
-                    }
+                else{
+                    Toast.makeText(SignUpActivity.this, "Please fill up all fields!", Toast.LENGTH_LONG).show();
                 }
             }
         });
+    }
+    private  void sendUser(){
+        User user = new User(edt_displayName.getText().toString(), edt_email.getText().toString(), edt_password.getText().toString(), edt_phoneNumber.getText().toString());
+        ApiService.apiService.insertUser(user).enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                Toast.makeText(SignUpActivity.this, "Now you can login by your personal account.", Toast.LENGTH_LONG).show();
+                User userResult=response.body();
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Toast.makeText(SignUpActivity.this, "Call API Error!", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+    private boolean checkValuedation(){
+        if (displayName_flag==true && phoneNumber_flag==true && password_flag==true && email_flag==true ) {
+            return true;
+        }
+        else {
+            if (!displayName_flag){
+                edt_displayName.setError("Display name is required.");
+            }
+            if (!phoneNumber_flag){
+                edt_phoneNumber.setError("Phone number is required.");
+            }
+            if (!password_flag){
+                edt_password.setError("Password is required.");
+            }
+            if (!email_flag){
+                edt_email.setError("Email is required.");
+            }
+            return false;
+        }
     }
     public static boolean isValidEmail(CharSequence target) {
         return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
