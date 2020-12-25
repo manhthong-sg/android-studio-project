@@ -4,19 +4,24 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
+const bodyParser=require('body-parser');
 
-
-// const userRoute = require('./route/user.route');
-// const roomRoute = require('./route/room.route');
-// const messageRoute = require('./route/message.route');
-
+app.use(bodyParser.json());
 app.get('/',function(req,res){
     res.send("Welcome to my socket");
 });
 
+//Imports routes
+const userRoute= require('./route/userRoute'); 
+const roomRoute=require('./route/roomRoute');
+const messageRoute=require('./route/messageRoute');
+
+app.use('/users', userRoute);
+app.use('/rooms', roomRoute);
+app.use('/messages', messageRoute);
 
 // app.use(express.static('client/'));
-// app.use(bodyParser.json());
+
 
 
  // connect mongoose
