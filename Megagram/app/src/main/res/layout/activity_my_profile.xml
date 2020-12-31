@@ -76,7 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:paddingLeft="20dp"
-                    android:text="Name:    "
+                    android:text="Gender:    "
                     android:textColor="#161517"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -85,13 +85,13 @@
                     />
 
                 <TextView
-                    android:id="@+id/edt_Name"
+                    android:id="@+id/tv_Gender"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:text="Bùi Trương Mạnh Thông"
+                    android:text="No data0"
                     android:textSize="20dp"
                     android:inputType="text"
-                    android:layout_marginLeft="15dp"
+                    android:paddingLeft="35dp"
                     android:gravity="center_vertical"
 
                     />
@@ -107,25 +107,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:paddingLeft="20dp"
-                    android:text="Sex:   "
+                    android:text="Birthday:   "
                     android:textColor="#161517"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:gravity="center_vertical"
 
                     />
-
                 <TextView
-                    android:id="@+id/edt_sex"
+                    android:id="@+id/tv_Birthday"
+                    android:text="dd/MM/yyyy0"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:text="Male"
+                    android:focusable="false"
                     android:textSize="20dp"
-                    android:inputType="text"
-                    android:layout_marginLeft="35dp"
+                    android:paddingLeft="25dp"
                     android:gravity="center_vertical"
-
                     />
+
 
 
 
@@ -140,7 +139,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:paddingLeft="20dp"
-                    android:text="Birthday:  "
+                    android:text="Phone:  "
                     android:textColor="#161517"
                     android:textSize="15sp"
                     android:textStyle="bold"
@@ -149,14 +148,14 @@
                     />
 
                 <TextView
-                    android:id="@+id/edt_date"
-                    android:text="11/05/1999"
+                    android:id="@+id/tv_PhoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:text="No data0"
                     android:textSize="20dp"
-                    android:layout_marginLeft="15dp"
+                    android:inputType="text"
+                    android:paddingLeft="55dp"
                     android:gravity="center_vertical"
-
                     />
             </LinearLayout>
 
@@ -169,8 +168,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:paddingLeft="25dp"
-                    android:text="Mobile:    "
+                    android:paddingLeft="20dp"
+                    android:text="Mail:    "
                     android:textColor="#161517"
                     android:textSize="15sp"
                     android:textStyle="bold"
@@ -179,13 +178,13 @@
                     />
 
                 <TextView
-                    android:id="@+id/edt_phone"
+                    android:id="@+id/tv_Mail"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:paddingLeft="60dp"
                     android:text="0948797825"
                     android:textSize="20dp"
                     android:inputType="text"
-                    android:layout_marginLeft="15dp"
                     android:gravity="center_vertical"
 
                     />
@@ -204,7 +203,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:paddingLeft="25dp"
-                    android:text="Mail:        "
+                    android:text="Address:        "
                     android:textColor="#161517"
                     android:textSize="15sp"
                     android:textStyle="bold"
@@ -212,10 +211,10 @@
                     />
 
                 <TextView
-                    android:id="@+id/edt_mail"
+                    android:id="@+id/tv_Address"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:text="manhthong@gmail.com"
+                    android:text="manhthong@gmail.com0"
                     android:textSize="20dp"
                     android:inputType="text"
                     android:layout_marginLeft="15dp"
@@ -225,14 +224,6 @@
 
 
             </LinearLayout>
-<!--            <ImageButton-->
-<!--                android:id="@+id/btnEditProfile"-->
-<!--                android:layout_width="30dp"-->
-<!--                android:layout_height="30dp"-->
-<!--                android:layout_gravity="right"-->
-<!--                android:layout_marginRight="20dp"-->
-<!--                android:background="@drawable/edit_profile"-->
-<!--                />-->
             <ImageButton
                 android:id="@+id/btnEditProfile"
                 android:layout_width="60dp"

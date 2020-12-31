@@ -20,6 +20,13 @@ app.use('/users', userRoute);
 app.use('/rooms', roomRoute);
 app.use('/messages', messageRoute);
 
+app.use((req, res,next)=>{
+  res.status(404);
+  res.send({
+    error: 'Not found'
+  })
+})
+
 // app.use(express.static('client/'));
 
 

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +24,8 @@ import com.manhthong.chatsocketio.Adapter.UserMessageAdapter;
 import com.manhthong.chatsocketio.MainActivity;
 import com.manhthong.chatsocketio.Message_Activity;
 import com.manhthong.chatsocketio.Model.Image_Message;
+import com.manhthong.chatsocketio.Model.MessageFormat;
+import com.manhthong.chatsocketio.Model.User;
 import com.manhthong.chatsocketio.R;
 import com.manhthong.chatsocketio.Model.User_Message;
 
@@ -32,12 +35,19 @@ import java.util.List;
 
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
+import com.manhthong.chatsocketio.api.ApiService;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class Message_Fragment extends Fragment  {
     //khai bao danh sach nguoi dung nhan tin
     ListView lv_user_massage;
     List<User_Message> lst_user_massage;
     UserMessageAdapter adapter;
     EditText edt_search;
+    TextView tv_hello;
     String id;
     //request socketIO
     private Socket mSocket;
@@ -56,11 +66,17 @@ public class Message_Fragment extends Fragment  {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_message, container, false);
+        getInfoMainActivity();
         //id=get;
         //mSocket.connect();
         //anh xa
         lv_user_massage=view.findViewById(R.id.lv_userMessage);
         edt_search=view.findViewById(R.id.edt_search);
+        tv_hello=view.findViewById(R.id.tvMessage);
+
+        //Show ten nguoi dang nhap
+        tv_hello.setText("Hello "+ MainActivity.displayName);
+
         //them du lieu vao list nguoi nhan tin
 
         lst_user_massage= new ArrayList<>();
@@ -113,6 +129,7 @@ public class Message_Fragment extends Fragment  {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //getInfoMainActivity();
         edt_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,5 +138,26 @@ public class Message_Fragment extends Fragment  {
             }
         });
     }
+    private void getInfoMainActivity() {
+        Call<List<User>> call= ApiService.apiService.getInfoMainActivity(MainActivity.uniqueId);
+        call.enqueue(new Callback<List<User>>() {
+            @Override
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                List<User> lst_userResult = response.body();
+                User user= lst_userResult.get(0);
+                MainActivity.displayName=user.getDisplayName();
+                MainActivity.gender=user.getGender();
+                MainActivity.birthday=user.getBirthday();
+                MainActivity.address=user.getAddress();
+                MainActivity.mail=user.getEmail();
+                MainActivity.password=user.getPassword();
+                MainActivity.phoneNumber=user.getPhoneNumber();
+            }
 
+            @Override
+            public void onFailure(Call<List<User>> call, Throwable t) {
+                Toast.makeText(getActivity(), "Tài khoản không tồn tại", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

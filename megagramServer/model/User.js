@@ -17,6 +17,18 @@ const userSchema = mongoose.Schema({
         type: String, 
         unique: true,
         required: true
+    },
+    gender:{
+        type: String,
+        default: "No data"
+    },
+    birthday:{
+        type: String,
+        default: "dd/MM/yyyy"
+    },
+    address:{
+        type: String,
+        default: "No data"
     }
 });
 

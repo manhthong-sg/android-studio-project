@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.manhthong.chatsocketio">
+    package="com.manhthong.chatsocketio"
+    >
      <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,6 +14,7 @@
         android:supportsRtl="true"
         android:icon="@mipmap/megagram_logo"
         android:theme="@style/Theme.ChatSocketIO"
+
         tools:targetApi="m">
 
         <activity android:name=".Message_Activity">
@@ -22,7 +24,9 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".SignUpActivity" />
+        <activity android:name=".SignUpActivity"
+            android:screenOrientation="portrait"
+            />
         <activity android:name=".aboutus" />
         <activity android:name=".MyProfile" />
 
@@ -34,7 +38,9 @@
 
         <activity android:name=".service" />
         <activity android:name=".UpdatePassword" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

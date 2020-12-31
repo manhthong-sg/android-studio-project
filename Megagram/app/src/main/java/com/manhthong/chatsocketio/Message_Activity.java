@@ -51,9 +51,10 @@ public class Message_Activity extends AppCompatActivity {
     List<MessageFormat> messageFormatList;
     public static final String TAG  = "Message_Activity";
     ArrayList<MessageFormat>arrayList=new ArrayList<>();
-    //public static String uniqueId;
+
+
     public String Time;
-    private String Username;
+//    private String Username;
 
     private Boolean hasConnection = false;
 
@@ -196,40 +197,8 @@ public class Message_Activity extends AppCompatActivity {
             }
 
         });
-
-        //onTypeButtonEnable();
     }
-    public void onTypeButtonEnable(){
-        edt_send.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
 
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                JSONObject onTyping = new JSONObject();
-                try {
-                    onTyping.put("typing", true);
-                    onTyping.put("username", Username);
-                    //onTyping.put("uniqueId", uniqueId);
-                    mSocket.emit("on typing", onTyping);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                if (charSequence.toString().trim().length() > 0) {
-                    btn_send.setEnabled(true);
-                } else {
-                    btn_send.setEnabled(false);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-            }
-        });
-    }
     Emitter.Listener onNewMessage = new Emitter.Listener() {
         @Override
         public void call(final Object... args) {

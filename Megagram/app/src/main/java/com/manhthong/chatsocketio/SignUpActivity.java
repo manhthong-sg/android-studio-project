@@ -29,18 +29,18 @@ public class SignUpActivity extends AppCompatActivity {
     TextView tvSignIn;
     EditText edt_displayName, edt_phoneNumber, edt_password, edt_email;
     Button btn_signUp;
-    boolean displayName_flag=false, phoneNumber_flag=false, password_flag=false, email_flag=false;
-    private Socket mSocket;
-    {
-        try {
-            mSocket = IO.socket("http://192.168.13.111:3000");
-        } catch (URISyntaxException e) {}
-    }
+    boolean displayName_flag=false, phoneNumber_flag=false, password_flag=false, email_flag=false, phoneNumberCheckDB=false;
+//    private Socket mSocket;
+//    {
+//        try {
+//            mSocket = IO.socket("http://192.168.13.111:3000");
+//        } catch (URISyntaxException e) {}
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_activity);
-        mSocket.connect();
+        //mSocket.connect();
         tvSignIn = findViewById(R.id.tvSignIn);
         btn_signUp = findViewById(R.id.btn_signUp);
         edt_displayName = findViewById(R.id.edt_displayName);
@@ -114,15 +114,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-//        if (!edt_displayName.getText().toString().isEmpty() || edt_displayName.getText().toString() != null) {
-//            displayName_flag = true;
-//        }
-//        if (!edt_phoneNumber.getText().toString().isEmpty() || edt_phoneNumber.getText().toString() != null) {
-//            phoneNumber_flag = true;
-//        }
-//        if (!edt_password.getText().toString().isEmpty() || edt_password.getText().toString() != null) {
-//            password_flag = true;
-//        }
+
         edt_email.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -149,9 +141,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(checkValuedation()==true){
-                    Toast.makeText(SignUpActivity.this, "Sign Up Successfuly!", Toast.LENGTH_LONG).show();
                     sendUser();
-                    finish();
                 }
                 else{
                     Toast.makeText(SignUpActivity.this, "Please fill up all fields!", Toast.LENGTH_LONG).show();
@@ -164,8 +154,15 @@ public class SignUpActivity extends AppCompatActivity {
         ApiService.apiService.insertUser(user).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                Toast.makeText(SignUpActivity.this, "Now you can login by your personal account.", Toast.LENGTH_LONG).show();
                 User userResult=response.body();
+                if(userResult.getPhoneNumber()!= null && userResult.getPhoneNumber()!=""){
+                    finish();
+                    Toast.makeText(SignUpActivity.this, "You can login by your account now.", Toast.LENGTH_SHORT).show();
+                    }
+                else {
+                    edt_phoneNumber.setError("Your phone number has been used in other account.");
+                    Toast.makeText(SignUpActivity.this, "Số điện thoại này đã có dùng dùng rồi", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
