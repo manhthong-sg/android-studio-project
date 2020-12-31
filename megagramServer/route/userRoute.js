@@ -65,7 +65,19 @@ router.post('/data/update', async(req, res)=>{
         birthday: req.body.birthday,
         phoneNumber: req.body.phoneNumber,
         email: req.body.email,
-        address: req.body.address
+        address: req.body.address,
+    }};
+    await User.updateOne({phoneNumber: req.body.phoneNumber}, newvalues, function(err,res) {
+        if (err) return res.json({msg: err});        
+    });
+    res.json({msg:'Thay đổi thông tin thành công'})
+});
+//update password
+router.post('/data/updatepassword', async(req, res)=>{
+    var newvalues = {$set:
+    {
+        phoneNumber: req.body.phoneNumber,
+        password: req.body.password
     }};
     await User.updateOne({phoneNumber: req.body.phoneNumber}, newvalues, function(err,res) {
         if (err) return res.json({msg: err});        

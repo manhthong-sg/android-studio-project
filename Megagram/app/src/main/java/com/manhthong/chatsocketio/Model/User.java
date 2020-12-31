@@ -18,7 +18,6 @@ public class User implements Serializable{
         this.password = password;
         this.phoneNumber = phoneNumber;
     }
-
     public User(String displayName, String email, String phoneNumber, String gender, String birthday, String address) {
         this.displayName = displayName;
         this.email = email;
@@ -26,6 +25,10 @@ public class User implements Serializable{
         this.gender = gender;
         this.birthday = birthday;
         this.address = address;
+    }
+    public User(String phoneNumber, String password){
+        this.phoneNumber=phoneNumber;
+        this.password=password;
     }
 
     public String getUserID() {

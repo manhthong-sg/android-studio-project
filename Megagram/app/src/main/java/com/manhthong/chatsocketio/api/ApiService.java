@@ -37,6 +37,9 @@ public interface ApiService {
     @POST("/users/data/update")
     Call<User> updateMyProfile(@Body User user);
 
+    @POST("/users/data/updatepassword")
+    Call<User> updateMyPassword(@Body User user);
+
     @GET("/users/data/{phoneNumber}")
     Call<List<User>> getApiLogin(@Path("phoneNumber") String phoneNumber);
 

@@ -95,7 +95,7 @@ public class editproflie extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(editproflie.this, "Successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(editproflie.this, "Fail to update information", Toast.LENGTH_SHORT).show();
             }
         });
     }
