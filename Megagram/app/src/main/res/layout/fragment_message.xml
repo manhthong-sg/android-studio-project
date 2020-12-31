@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/main_background"
+    android:background="@drawable/message_fragment_background"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -27,7 +27,8 @@
             android:textStyle="bold" />
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="95dp">
+            android:layout_height="95dp"
+            android:layout_marginTop="7dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="48dp"
@@ -70,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/message_header"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="45dp" />
 
 
 </RelativeLayout>

@@ -52,16 +52,16 @@ public class UpdatePassword extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 if(edt_confirmPass.getText().toString().isEmpty() || edt_confirmPass.getText().toString()==null) {
-                    edt_confirmPass.setError("Display name is required");
+                    edt_confirmPass.setError("*Required");
                 }
 
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(edt_currentPass.getText().toString().equals(edt_confirmPass.getText().toString())){
-                    currentpass_flag=true;
-                }
+//                if()){
+//                    currentpass_flag=true;
+//                }
             }
         });
 
@@ -70,7 +70,7 @@ public class UpdatePassword extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(edt_currentPass.getText().toString().equals(MainActivity.password)){
-                    if(currentpass_flag==true){
+                    if(edt_newPass.getText().toString().equals(edt_confirmPass.getText().toString())){
                         updateMyPassword();
                     }
                     else {
