@@ -74,5 +74,6 @@ public class contactus extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "permission DENIED", Toast.LENGTH_SHORT).show();
             }
-        }    }
+        }
+    }
 }

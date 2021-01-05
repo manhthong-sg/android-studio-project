@@ -2,16 +2,20 @@ const mongoose = require('mongoose');
 //const Room = require('./room.model');
 
 const messageSchema = mongoose.Schema({
-    senderId: mongoose.Types.ObjectId,
+    UniqueId: {
+        type: String,
+        required: true
+    },
     roomId: {
         type: mongoose.Types.ObjectId,
         validate: {
             validator: roomId => roomId !== "",
-            message: "RoomId is not empty"
+            message: "RoomId is not empty",
+            required: true
         },
     },
-    content: String,
-    time: String
+    Message: String,
+    Time: String
 });
 
 module.exports = mongoose.model('Messages', messageSchema);

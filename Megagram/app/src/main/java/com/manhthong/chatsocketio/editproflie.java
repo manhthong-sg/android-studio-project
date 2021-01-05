@@ -85,7 +85,11 @@ public class editproflie extends AppCompatActivity {
     }
 
     private void updateMyProfile() {
-        User user = new User(edt_name.getText().toString(), edt_mail.getText().toString(), edt_phoneNumber.getText().toString(), radioButton.getText().toString(), edt_birthday.getText().toString(), edt_address.getText().toString());
+        radioButton.setText("Male");
+        User  user = new User(edt_name.getText().toString(), edt_mail.getText().toString(), MainActivity.phoneNumber, radioButton.getText().toString(), edt_birthday.getText().toString(), edt_address.getText().toString());
+        if(edt_birthday.getText().toString().isEmpty() || edt_birthday.getText().toString()==null){
+            user.setBirthday(MainActivity.birthday);
+        }
         ApiService.apiService.updateMyProfile(user).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
@@ -116,7 +120,11 @@ public class editproflie extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 calendar.set(year,month,dayOfMonth);
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                edt_birthday.setText(simpleDateFormat.format(calendar.getTime()));
+//                SimpleDateFormat simpleDateFormat1= new SimpleDateFormat("yyyy");
+//                String year_choose=simpleDateFormat1.format(calendar.getTime());
+                String data_choose= simpleDateFormat.format(calendar.getTime());
+//                if(data_choose>=)
+                edt_birthday.setText(data_choose);
             }
         },nam,thang,ngay);
         datePickerDialog.show();

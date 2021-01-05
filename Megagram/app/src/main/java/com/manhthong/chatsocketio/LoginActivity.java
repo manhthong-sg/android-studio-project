@@ -94,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<List<User>> call, Throwable t) {
-                        Toast.makeText(LoginActivity.this, "Tài khoản không tồn tại Trong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Check your network please", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

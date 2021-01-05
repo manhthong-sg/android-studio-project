@@ -1,6 +1,7 @@
 const express = require('express');
 //const userController = require('../controller/user.controller');
 const User=require('../model/User');
+const Room=require('../model/Room');
 
 const router = express.Router();
 
@@ -23,7 +24,23 @@ router.get('/', async (req, res)=>{
         
 //     }
 // })
+router.get('/data/:phoneNumber/roomConnected', async(req,res)=>{
+    const phone=req.params.phoneNumber;
+    const room= await Room.find({$or: [{ user1: phone}, {user2: phone}]});
+    const user= await User.find();
+    let users=[];
+    room.map(r=>{
+       user.map(u=>{
+           if(u.phoneNumber===r.user2 || u.phoneNumber===r.user1)
+           {
+               users.push(u)
+           }
+       })
+    })
 
+    
+    res.json(room)
+})
 // show user profile by phoneNumber
 router.get('/data/:phoneNumber', async (req, res)=>{
     try{

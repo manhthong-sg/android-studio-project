@@ -6,6 +6,8 @@ var port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const bodyParser=require('body-parser');
 
+const Message=require('./model/Message');
+
 app.use(bodyParser.json());
 app.get('/',function(req,res){
     res.send("Welcome to my socket");
@@ -46,50 +48,25 @@ mongoose.connect("mongodb://localhost:27017/megagramDB");
     // set up socket 
       console.log('User Connection '+socket.id);
       //server nhan tin nhan
-      socket.on('client-gui-tn',function(message){
+      socket.on('client-gui-tn', async function(message){
           console.log(message.senderId+ ": "+ message.nd + " send at: "+ message.time);
-          io.sockets.emit('onMessage', {id: message['senderId'], noidung: message.nd, time: message.time})
-      })
-
-      // Add user to new room
-      socket.on('create_new_room', data => {
-        //handleSocket.AddUsersToNewRoom(io, data);
-        const AddUsersToNewRoom = async (io, data) => {
-          const members = data.members;
-          const room = `room: ${ data.roomId }`;
-          // The default namespace is '/'
-          ns = io.of('/');
-          // api namespace.connected return an obj contains all sockets connected (version 2.*)
-          for(var id in ns.connected) {
-              // Id is the id of the socket
-              // Must use ns.connected[id] if use ns.connected.id return undefined
-              const socket = ns.connected[id];
-              if(members.indexOf(socket.name) >= 0) {
-                  socket.join(room);
-              }
-          }
-      }
-      })
-      
-      //client login
-      socket.on('client-login', (user_login)=>{
-
-          var username=user_login["username"];
-          var password = user_login['password'];
-          console.log(username+" "+password);
-          
-          if(username=="1234" && password=="1234"){
-              console.log("tdn va pass dung roi!");
-              socket.emit('login_status', {nd: true, id: socket.id} )
-          }
-          if(username=="123" && password=="123"){
-            console.log("tdn va pass dung roi!");
-            socket.emit('login_status', {nd: true, id: socket.id} )
+          const message1= new Message({
+            UniqueId: message['senderId'],
+            roomId: message.roomnhan,
+           Message: message.nd,
+           Time: message.time
+        });
+        try{
+            const saveMessage= await message1.save();
         }
-          else{
-            socket.emit('login_status', {nd: false} )
-          }
+        catch(err){
+            console.log(err)
+        }
+          
+          io.sockets.emit('onMessage', {id: message['senderId'], noidung: message.nd, time: message.time, roomnhan: message.roomnhan})
       })
+
+
       // Check disconnected
     socket.on('disconnect', reason => {
       console.log(`${ new Date().toLocaleTimeString() }: ${ socket.id } has disconnected because ${ reason }`);

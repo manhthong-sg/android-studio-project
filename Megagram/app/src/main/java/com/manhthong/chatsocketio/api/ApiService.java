@@ -2,8 +2,11 @@ package com.manhthong.chatsocketio.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.manhthong.chatsocketio.Model.MessageFormat;
+import com.manhthong.chatsocketio.Model.Room;
 import com.manhthong.chatsocketio.Model.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -24,7 +27,7 @@ public interface ApiService {
             .create();
 
     ApiService apiService= new Retrofit.Builder()
-            .baseUrl("http://192.168.1.5:3000")
+            .baseUrl("http://192.168.43.37:3000")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService.class);
@@ -37,6 +40,10 @@ public interface ApiService {
     @POST("/users/data/update")
     Call<User> updateMyProfile(@Body User user);
 
+    @POST("/rooms")
+    Call<Room> createRoom(@Body Room room);
+
+
     @POST("/users/data/updatepassword")
     Call<User> updateMyPassword(@Body User user);
 
@@ -46,8 +53,16 @@ public interface ApiService {
     @GET("/users/data/{phoneNumber}")
     Call<List<User>> getInfoMainActivity(@Path("phoneNumber") String phoneNumber);
 
-    //@Path("phoneNumber") String phone_number
+    @GET("/rooms/data/{roomId}")
+    Call<ArrayList<MessageFormat>> getRoomMessage(@Path("roomId") String roomId);
 
+    //@Path("phoneNumber") String phone_number
+    @GET("/users")
+    Call<ArrayList<User>> getAllUser();
     @POST("/users")
     Call<User> insertUser(@Body User user);
+
+    //get room from user
+    @GET("/users/data/{phoneNumber}/roomConnected")
+    Call<ArrayList<Room>> getUserRoomConnected(@Path("phoneNumber") String phoneNumber);
 }

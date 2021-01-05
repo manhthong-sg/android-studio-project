@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/layout"
     android:orientation="horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -16,12 +17,11 @@
         android:layout_margin="10dp"
         >
         <ImageView
-
+            android:background="@drawable/avatar_thong"
             android:id="@+id/imgUser"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:scaleType="centerCrop"
-            android:background="@drawable/avatar_thong"
             />
     </androidx.cardview.widget.CardView>
 
@@ -51,24 +51,18 @@
                 />
 <!--            message_description-->
             <TextView
-                android:id="@+id/tv_messageDesc"
+                android:id="@+id/tv_PhoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="miniMessage . . ."
+                android:text="Phone Number . . ."
+                />
+            <TextView
+                android:id="@+id/tv_Address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address . . ."
                 />
 
-
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_messageTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="00:00 am"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="13dp"
-            android:layout_marginRight="20dp"
-            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

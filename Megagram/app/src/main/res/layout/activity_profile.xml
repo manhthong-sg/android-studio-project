@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Profile">
+    tools:context=".MyProfile">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="280dp"
@@ -18,183 +18,205 @@
             android:scaleType="centerCrop"
             />
         <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@drawable/avatar_huuloc"
+            android:src="@drawable/avatar_thong"
             android:layout_gravity="center"
             android:layout_marginTop="75dp"
             app:civ_border_width="2dp"
             app:civ_border_color="#FF000000"
             />
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_back_white"
-            style="?android:buttonBarButtonStyle"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back_white"
+                style="?android:buttonBarButtonStyle"
+                />
+        </LinearLayout>
+
     </FrameLayout>
     <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nguyen Huu Loc"
-            android:layout_gravity="center"
-            android:textStyle="bold"
-            android:textSize="30sp"
-            android:textColor="@android:color/black"
-            />
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-
+        android:text="Mạnh Thông"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@android:color/black"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_height="300dp"
+            android:orientation="vertical"
             >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="Name:    "
-                android:textColor="#161517"
-                android:textSize="18sp"
-                android:textStyle="bold"
 
-                />
-
-            <TextView
-                android:id="@+id/edt_Name"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="Nguyen Huu Loc"
-                android:textSize="20dp"
-                android:inputType="text"
-                android:layout_marginLeft="15dp"
-
-                />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="Sex:   "
-                android:textColor="#161517"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:text="Gender:    "
+                    android:textColor="#161517"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
 
-                />
+                    />
 
-            <TextView
-                android:id="@+id/edt_sex"
+                <TextView
+                    android:id="@+id/tv_Gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="No data0"
+                    android:textSize="20dp"
+                    android:inputType="text"
+                    android:paddingLeft="35dp"
+                    android:gravity="center_vertical"
+
+                    />
+
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="Male"
-                android:textSize="20dp"
-                android:inputType="text"
-                android:layout_marginLeft="35dp"
-
-                />
-
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="Birthday:  "
-                android:textColor="#161517"
-                android:textSize="15sp"
-                android:textStyle="bold"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
 
-                />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:text="Birthday:   "
+                    android:textColor="#161517"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
 
-            <TextView
-                android:id="@+id/edt_date"
-                android:text="10/07/2710"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_Birthday"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="25dp"
+                    android:text="dd/MM/yyyy0"
+                    android:textSize="20dp" />
+
+
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:textSize="20dp"
-                android:layout_marginLeft="15dp"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="25dp"
-                android:text="Mobile:    "
-                android:textColor="#161517"
-                android:textSize="15sp"
-                android:textStyle="bold"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:text="Phone:  "
+                    android:textColor="#161517"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
 
-                />
+                    />
 
-            <TextView
-                android:id="@+id/edt_phone"
+                <TextView
+                    android:id="@+id/tv_PhoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="No data0"
+                    android:textSize="20dp"
+                    android:inputType="text"
+                    android:paddingLeft="55dp"
+                    android:gravity="center_vertical"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="0948797825"
-                android:textSize="20dp"
-                android:inputType="text"
-                android:layout_marginLeft="15dp"
-                />
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="25dp"
-                android:text="Mail:        "
-                android:textColor="#161517"
-                android:textSize="15sp"
-                android:textStyle="bold"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:text="Mail:    "
+                    android:textColor="#161517"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
 
-                />
+                    />
 
-            <TextView
-                android:id="@+id/edt_mail"
+                <TextView
+                    android:id="@+id/tv_Mail"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingLeft="60dp"
+                    android:text="0948797825"
+                    android:textSize="20dp"
+                    android:inputType="text"
+                    android:gravity="center_vertical"
+
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="nguynlc885@gmail.com"
-                android:textSize="20dp"
-                android:inputType="text"
-                android:layout_marginLeft="15dp"
-                android:textStyle="italic"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
 
 
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="25dp"
+                    android:text="Address:        "
+                    android:textColor="#161517"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_Address"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="manhthong@gmail.com0"
+                    android:textSize="20dp"
+                    android:inputType="text"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center_vertical"
+                    android:textStyle="italic"
+                    />
+
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+
+    </ScrollView>
+
 </LinearLayout>
