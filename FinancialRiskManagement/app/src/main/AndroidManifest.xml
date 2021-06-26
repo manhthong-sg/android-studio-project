@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.manhthong.financialriskmanagement">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_logo_purple_shark"
+        android:label="Quản trị rủi ro"
+        android:supportsRtl="true"
+        android:roundIcon="@null"
+        android:theme="@style/Theme.FinancialRiskManagement">
+        <activity android:name=".Result_Future_With_LeverageActivity"></activity>
+        <activity android:name=".Future_With_LeverageActivity" />
+        <activity android:name=".Result_Spot_No_LeverageActivity" />
+        <activity android:name=".Spot_No_LeverageActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>
