@@ -47,7 +47,7 @@
     <LinearLayout
         android:id="@+id/group_login"
         android:layout_width="267dp"
-        android:layout_height="510dp"
+        android:layout_height="550dp"
         android:layout_margin="60dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/txtSignIn"
@@ -127,15 +127,25 @@
             android:paddingBottom="20dp"
             android:textColor="#3F3E8A"
             android:textColorHint="#3F3E8A" />
+        <Switch
+            android:id="@+id/sw_short"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="                     Lệnh SHORT"
+            android:textSize="20sp"
+            android:layout_marginTop="15dp"
+            android:textColor="#3F3E8A"
+            />
         <Button
             android:id="@+id/btn_Tinh"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="30dp"
-            android:background="@drawable/custom_button_simple"
-            android:text="Tính cho tôi"
+            android:background="@drawable/button_short_custom"
+            android:text="Tính lệnh LONG"
             android:textColor="#FFFFFF"
-            app:backgroundTint="#3F3E8A" />
+            />
     </LinearLayout>
 
     <LinearLayout

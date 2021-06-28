@@ -4,4 +4,5 @@
     <corners android:radius="25dp"/>
     <solid android:color="@color/white"/>
     <stroke android:color="@color/cardview_dark_background"/>
+
 </shape>
