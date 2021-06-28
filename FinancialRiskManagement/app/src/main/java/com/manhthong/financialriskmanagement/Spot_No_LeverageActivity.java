@@ -18,6 +18,7 @@ public class Spot_No_LeverageActivity extends AppCompatActivity {
     EditText stoploss;
     EditText entry;
     EditText target;
+
     Button btn_Tinh;
     TextView tv_future;
     boolean tongVon_flag=false;
@@ -31,6 +32,7 @@ public class Spot_No_LeverageActivity extends AppCompatActivity {
         entry=findViewById(R.id.edt_entry);
         target=findViewById(R.id.edt_target);
         btn_Tinh=findViewById(R.id.btn_Tinh);
+
         tv_future=findViewById(R.id.tv_Future);
 
         tongVon.addTextChangedListener(new TextWatcher() {
@@ -71,12 +73,15 @@ public class Spot_No_LeverageActivity extends AppCompatActivity {
                 Double RuiRo= Double.parseDouble(ruiRo.getText().toString());
                 Double Entry= Double.parseDouble(entry.getText().toString());
                 Double Stoploss= Double.parseDouble(stoploss.getText().toString());
+                Double Target= Double.parseDouble(target.getText().toString());
                 if(checkValuedation()){
                     Double soCoinCanMua=TongVon*RuiRo/(Entry-Stoploss)*1/100;
 
                     Double soTienBoRa=soCoinCanMua*Entry;
                     soCoinCanMua=(double)Math.round(soCoinCanMua*100)/100;
                     soTienBoRa=(double)Math.round(soTienBoRa*100)/100;
+
+                    Double LoiNhuan=(Target/Entry-1)*100;
 
                     Intent intentResult = new Intent(Spot_No_LeverageActivity.this, Result_Spot_No_LeverageActivity.class);
                     intentResult.putExtra("tongVon",tongVon.getText().toString());
@@ -86,6 +91,7 @@ public class Spot_No_LeverageActivity extends AppCompatActivity {
                     intentResult.putExtra("target", target.getText().toString());
                     intentResult.putExtra("SoCoiCanMua", soCoinCanMua.toString());
                     intentResult.putExtra("SoTienBoRa", soTienBoRa.toString());
+                    intentResult.putExtra("LoiNhuan", LoiNhuan.toString());
 
                     startActivity(intentResult);
                 }

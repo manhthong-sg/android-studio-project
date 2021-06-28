@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.annotation.Target;
+
 public class Future_With_LeverageActivity extends AppCompatActivity {
     EditText tongVon;
     EditText ruiRo;
@@ -76,13 +78,21 @@ public class Future_With_LeverageActivity extends AppCompatActivity {
                 Double Entry= Double.parseDouble(entry.getText().toString());
                 Double Stoploss= Double.parseDouble(stoploss.getText().toString());
                 Double DonBay=Double.parseDouble(donBay.getText().toString());
+                Double Target=Double.parseDouble(target.getText().toString());
+
                 if(checkValuedation()){
                     Double soTienBoRa=TongVon*RuiRo*1/100*Entry/(DonBay*(Entry-Stoploss));
 
                     Double soCoinCanMua=soTienBoRa/Entry;
 
+                    Double LoiNhuan=DonBay*(Target/Entry-1)*100;
+
+                    Double tiLeRR=(soTienBoRa*LoiNhuan/100)/(TongVon*RuiRo/100);
+
                     soCoinCanMua=(double)Math.round(soCoinCanMua*10000)/10000;
                     soTienBoRa=(double)Math.round(soTienBoRa*100)/100;
+                    LoiNhuan=(double)Math.round(LoiNhuan*100)/100;
+                    tiLeRR=(double)Math.round(tiLeRR*100)/100;
 
                     Intent intentResult = new Intent(Future_With_LeverageActivity.this, Result_Future_With_LeverageActivity.class);
                     intentResult.putExtra("tongVon",tongVon.getText().toString());
@@ -93,6 +103,8 @@ public class Future_With_LeverageActivity extends AppCompatActivity {
                     intentResult.putExtra("donBay", donBay.getText().toString());
                     intentResult.putExtra("SoCoiCanMua", soCoinCanMua.toString());
                     intentResult.putExtra("SoTienBoRa", soTienBoRa.toString());
+                    intentResult.putExtra("LoiNhuan", LoiNhuan.toString());
+                    intentResult.putExtra("tiLeRR", tiLeRR.toString());
 
                     startActivity(intentResult);
                 }

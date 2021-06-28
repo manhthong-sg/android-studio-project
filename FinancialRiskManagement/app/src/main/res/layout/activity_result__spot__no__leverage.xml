@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Result_Spot_No_LeverageActivity"
-    android:background="@drawable/background3">
+    >
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Kết quả"
-            android:textColor="@color/white"
+            android:textColor="#5A599F"
             android:textSize="35sp"
             android:textAlignment="center"
             android:textStyle="bold"
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:text="Với số vốn của bạn"
             android:textSize="20sp"
-            android:textColor="@color/white"
+            android:textColor="#5A599F"
             android:layout_weight="1"
             />
             <TextView
@@ -76,7 +76,7 @@
                 android:layout_gravity="right"
                 android:layout_weight="3"
                 android:textSize="20sp"
-                android:textColor="@color/white"
+                android:textColor="#5A599F"
                 android:gravity="center_horizontal" />
         </LinearLayout>
         <LinearLayout
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:text="Và mức rủi ro chấp nhận:"
                 android:textSize="20sp"
-                android:textColor="@color/white"
+                android:textColor="#5A599F"
                 android:layout_weight="1"
                 />
             <TextView
@@ -99,7 +99,7 @@
                 android:textAlignment="center"
                 android:layout_weight="3"
                 android:textSize="20sp"
-                android:textColor="@color/white"
+                android:textColor="#5A599F"
                 android:gravity="center_horizontal" />
         </LinearLayout>
         <LinearLayout
@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:text="Thì bạn nên bỏ ra:"
                 android:textSize="20sp"
-                android:textColor="@color/white"
+                android:textColor="#5A599F"
                 android:layout_weight="1"
                 />
             <TextView
@@ -122,7 +122,7 @@
                 android:textAlignment="center"
                 android:layout_weight="3"
                 android:textSize="20sp"
-                android:textColor="@color/white"
+                android:textColor="#5A599F"
                 android:gravity="center_horizontal" />
         </LinearLayout>
         <LinearLayout
@@ -134,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:text="Tương đương với việc mua: "
                 android:textSize="20sp"
-                android:textColor="@color/white"
+                android:textColor="#5A599F"
                 android:layout_weight="1"
                 />
             <TextView
@@ -145,7 +145,7 @@
                 android:textAlignment="center"
                 android:layout_weight="3"
                 android:textSize="20sp"
-                android:textColor="@color/white"
+                android:textColor="#5A599F"
                 android:gravity="center_horizontal" />
         </LinearLayout>
         <LinearLayout
@@ -157,7 +157,7 @@
                 android:layout_height="wrap_content"
                 android:text="Ở giá entry: "
                 android:textSize="20sp"
-                android:textColor="@color/white"
+                android:textColor="#5A599F"
                 android:layout_weight="1"
                 />
             <TextView
@@ -168,7 +168,30 @@
                 android:textAlignment="center"
                 android:layout_weight="3"
                 android:textSize="20sp"
-                android:textColor="@color/white"
+                android:textColor="#5A599F"
+                android:gravity="center_horizontal" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đạt lợi nhuận: "
+                android:textSize="20sp"
+                android:textColor="#5A599F"
+                android:layout_weight="1"
+                />
+            <TextView
+                android:id="@+id/txtLoiNhuan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textAlignment="center"
+                android:layout_weight="3"
+                android:textSize="20sp"
+                android:textColor="#5A599F"
                 android:gravity="center_horizontal" />
         </LinearLayout>
         <Button
@@ -178,8 +201,8 @@
             android:layout_margin="30dp"
             android:background="@drawable/custom_button_simple"
             android:text="Trở về"
-            android:textColor="#565656"
-            app:backgroundTint="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#5A599F" />
     </LinearLayout>
 
     <LinearLayout
@@ -198,7 +221,7 @@
             android:text="Have an account?"
             android:textStyle="italic"
             android:textSize="20sp"
-            android:textColor="#D54060"
+            android:textColor="#5A599F"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -208,7 +231,7 @@
             android:layout_height="wrap_content"
             android:text="  Sign in"
             android:textStyle="bold"
-            android:textColor="#D54060"
+            android:textColor="#5A599F"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

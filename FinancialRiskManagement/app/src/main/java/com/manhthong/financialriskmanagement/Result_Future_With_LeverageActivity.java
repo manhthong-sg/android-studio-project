@@ -15,6 +15,8 @@ public class Result_Future_With_LeverageActivity extends AppCompatActivity {
     TextView tv_soCoin;
     TextView tv_entry;
     TextView tv_donBay;
+    TextView tv_loiNhuan;
+    TextView tv_tiLeRR;
     Button btn_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,8 @@ public class Result_Future_With_LeverageActivity extends AppCompatActivity {
         tv_soCoin=findViewById(R.id.txtSoCoin);
         tv_entry=findViewById(R.id.txtEntry);
         tv_donBay=findViewById(R.id.txtDonBay);
+        tv_loiNhuan=findViewById(R.id.txtLoiNhuan);
+        tv_tiLeRR=findViewById(R.id.txtTiLeRR);
         btn_back=findViewById(R.id.btn_back);
 
         btn_back.setOnClickListener(new View.OnClickListener() {
@@ -53,5 +57,11 @@ public class Result_Future_With_LeverageActivity extends AppCompatActivity {
 
         String entry=intent.getStringExtra("entry")+"$";
         tv_entry.setText(entry);
+
+        String loi_nhuan=intent.getStringExtra("LoiNhuan")+"%";
+        tv_loiNhuan.setText(loi_nhuan);
+
+        String ti_le_RR="1R : "+intent.getStringExtra("tiLeRR")+"R";
+        tv_tiLeRR.setText(ti_le_RR);
     }
 }

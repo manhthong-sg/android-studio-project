@@ -14,6 +14,7 @@ public class Result_Spot_No_LeverageActivity extends AppCompatActivity {
     TextView tv_giaDT;
     TextView tv_soCoin;
     TextView tv_entry;
+    TextView loiNhuan;
     Button btn_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class Result_Spot_No_LeverageActivity extends AppCompatActivity {
         tv_giaDT=findViewById(R.id.txtGiaDauTu);
         tv_soCoin=findViewById(R.id.txtSoCoin);
         tv_entry=findViewById(R.id.txtEntry);
+        loiNhuan=findViewById(R.id.txtLoiNhuan);
         btn_back=findViewById(R.id.btn_back);
 
         btn_back.setOnClickListener(new View.OnClickListener() {
@@ -49,5 +51,9 @@ public class Result_Spot_No_LeverageActivity extends AppCompatActivity {
 
         String entry=intent.getStringExtra("entry")+"$";
         tv_entry.setText(entry);
+
+        String loi_nhuan=intent.getStringExtra("LoiNhuan")+"%";
+        loiNhuan.setText(loi_nhuan);
+
     }
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Future_With_LeverageActivity"
-    android:background="@drawable/background3">
+    >
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Future - Đòn bẩy"
-            android:textColor="@color/white"
+            android:textColor="#3F3E8A"
             android:textSize="35sp"
             android:textAlignment="center"
             android:textStyle="bold"
@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nói không với rủi ro"
-            android:textColor="@color/white"
+            android:textColor="#3F3E8A"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,36 +62,36 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="#FFFFFF"
+            android:backgroundTint="#3F3E8A"
             android:hint="Tổng vốn của bạn"
-            android:inputType="numberSigned"
+            android:inputType="numberDecimal"
             android:paddingBottom="20dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#FFFFFF" />
+            android:textColor="#3F3E8A"
+            android:textColorHint="#3F3E8A" />
 
         <EditText
             android:id="@+id/edt_ruiRoPercent"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="#FFFFFF"
+            android:backgroundTint="#3F3E8A"
             android:hint="Rủi ro (%)"
-            android:inputType="numberSigned"
+            android:inputType="numberDecimal"
             android:paddingBottom="20dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#FFFFFF" />
+            android:textColor="#3F3E8A"
+            android:textColorHint="#3F3E8A" />
 
         <EditText
             android:id="@+id/edt_stopLoss"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="#FFFFFF"
+            android:backgroundTint="#3F3E8A"
             android:hint="Điểm dừng lỗ (StopLoss)"
-            android:inputType="numberSigned"
+            android:inputType="numberDecimal"
             android:paddingBottom="20dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#FFFFFF" />
+            android:textColor="#3F3E8A"
+            android:textColorHint="#3F3E8A" />
 
 
         <EditText
@@ -99,34 +99,34 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="#FFFFFF"
-            android:inputType="numberSigned"
+            android:backgroundTint="#3F3E8A"
+            android:inputType="numberDecimal"
             android:hint="Giá vào (Entry)"
             android:paddingBottom="20dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#FFFFFF" />
+            android:textColor="#3F3E8A"
+            android:textColorHint="#3F3E8A" />
         <EditText
             android:id="@+id/edt_target"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="#FFFFFF"
-            android:inputType="numberSigned"
+            android:backgroundTint="#3F3E8A"
+            android:inputType="numberDecimal"
             android:hint="Giá chốt lời (Target)"
             android:paddingBottom="20dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#FFFFFF" />
+            android:textColor="#3F3E8A"
+            android:textColorHint="#3F3E8A" />
         <EditText
             android:id="@+id/edt_leverage"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="#FFFFFF"
-            android:inputType="numberSigned"
+            android:backgroundTint="#3F3E8A"
+            android:inputType="numberDecimal"
             android:hint="Đòn bẩy"
             android:paddingBottom="20dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#FFFFFF" />
+            android:textColor="#3F3E8A"
+            android:textColorHint="#3F3E8A" />
         <Button
             android:id="@+id/btn_Tinh"
             android:layout_width="match_parent"
@@ -134,8 +134,8 @@
             android:layout_margin="30dp"
             android:background="@drawable/custom_button_simple"
             android:text="Tính cho tôi"
-            android:textColor="#565656"
-            app:backgroundTint="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#3F3E8A" />
     </LinearLayout>
 
     <LinearLayout
@@ -155,7 +155,7 @@
             android:text="Bạn chỉ đánh Spot?"
             android:textStyle="italic"
             android:textSize="20sp"
-            android:textColor="#D54060"
+            android:textColor="#5A599F"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -165,7 +165,7 @@
             android:layout_height="wrap_content"
             android:text="  Spot"
             android:textStyle="bold"
-            android:textColor="#D54060"
+            android:textColor="#3F3E8A"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
